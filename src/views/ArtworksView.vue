@@ -178,12 +178,10 @@ function goToPrevSlide() {
         <template v-for="item in catalogueItems">
           <CatalogueYearIndicator
             v-if="item.type === 'year-indicator'"
-            :key="item.year"
             :year="item.year"
           />
           <CatalogueArtworkButton
             v-if="item.type === 'artwork-button'"
-            :key="item.artworkIndex"
             :tabindex="isLightboxActive ? -1 : 0"
             :artwork="item.artwork"
             @click="openLightbox(item.artworkIndex)"

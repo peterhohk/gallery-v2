@@ -24,7 +24,6 @@ function handleMiddleClick() {
     <img
       :src="getArtworkThumbSrc(artwork)"
       :alt="`Open artwork ${artwork.title}`"
-      loading="lazy"
       class="artwork-catalogue__artwork-button-thumb"
     >
     <div class="artwork-catalogue__artwork-button-overlay">
