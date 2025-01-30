@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ada",
+    "englisgName": "Ada",
+    "japaneseNameRuby": [
+      { "kanji": "春日", "kana": "かすが" },
+      { "kanji": "晴", "kana": "はる" }
+    ],
+    "japaneseNameRomaji": "Kasuga Haru",
+    "age": 15,
+    "height": 157,
+    "weight": 51,
+    "birthday": "12 Feb",
+    "bloodType": "O",
+    "about": "President of the school's junior track and field team. An all-in-one package of strength, confidence and a bundle of sunshine. Radiates an aura that makes it impossible to feel sad around her.",
+    "likes": ["Fruits (esp. strawberries)", "Bubble tea", "Hot springs", "Photography"],
+    "dislikes": ["Spiders", "Spicy food", "Maths lectures"],
+    "quote1": "Hey look, a rainbow!",
+    "quote2": "You're NOT getting away with that!",
+    "quote3": "Let's go!!! Let's go!!! LET'S GOOOOOOOO!!!"
+  },
+  {
+    "id": "bella",
+    "englisgName": "Bella",
+    "japaneseNameRuby": [
+      { "kanji": "如月", "kana": "きさらぎ" },
+      { "kanji": "理香子", "kana": "りかこ" }
+    ],
+    "japaneseNameRomaji": "Kisaragi Rikako",
+    "age": 16,
+    "height": 161,
+    "weight": 49,
+    "birthday": "28 Nov",
+    "bloodType": "AB",
+    "about": "Academic top-achiever beyond anyone's reach. Unanimously admired by her classmates, but remains humble and willing to help them. Gentle, serene, elegant, like a crescent moon.",
+    "likes": ["Almonds", "Herbal tea", "Mystery / fantasy novels", "Puzzle games"],
+    "dislikes": ["Fatty food", "Hot weather", "Pop music"],
+    "quote1": "Oh, this is a rare specimen!",
+    "quote2": "Well, that's one way to put it, I guess.",
+    "quote3": "This can't be a 9, there's already a 9 on the same row... So that means..."
+  },
+  {
+    "id": "celia",
+    "englisgName": "Celia",
+    "japaneseNameRuby": [
+      { "kanji": "星川", "kana": "ほしかわ" },
+      { "kanji": "椿", "kana": "つばき" }
+    ],
+    "japaneseNameRomaji": "Hoshikawa Tsubaki",
+    "age": 14,
+    "height": 152,
+    "weight": 46,
+    "birthday": "31 Mar",
+    "bloodType": "B",
+    "about": "Attention-seeker, star of the crowd. Loves to spice up every conversation with her witty jokes. An excellent mood-maker, but can be somewhat of an airhead at times.",
+    "likes": ["Lollipop", "Drawing", "Watching anime", "Taking care of house plants"],
+    "dislikes": ["Vegetables (esp. broccolis)", "Insects", "Homework"],
+    "quote1": "It's a secret.",
+    "quote2": "Who do you think you're fooling with a lie like this?",
+    "quote3": "Am I supposed to know that?"
+  },
+  {
+    "id": "davina",
+    "englisgName": "Davina",
+    "japaneseNameRuby": [
+      { "kanji": "星川", "kana": "ほしかわ" },
+      { "kanji": "紫苑", "kana": "しおん" }
+    ],
+    "japaneseNameRomaji": "Hoshikawa Shion",
+    "age": 12,
+    "height": 146,
+    "weight": 37,
+    "birthday": "4 Aug",
+    "bloodType": "A",
+    "about": "Silent, poker-faced, a perpetually veiled dainty blossom. The inside of her mind is a constellation of mystery, only decipherable by her big sis Celia. The key to unlocking her heart is affection.",
+    "likes": ["Cats", "Dark chocolate", "Black tea", "Classical / orchestral music"],
+    "dislikes": ["Puns (Celia's puns, in particular)", "Horror movies", "Household chores"],
+    "quote1": "Who are you?",
+    "quote2": "A perfect cup of afternoon tea...",
+    "quote3": "Nee-chan, you're on flower watering duty today."
+  }
+]

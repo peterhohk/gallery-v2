@@ -1,0 +1,146 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Klee+One&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+button {
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+}
+ul, ol {
+  padding-left: 1.5em;
+}
+input, select {
+  font-size: inherit;
+}
+label, button, select, summary, [type="radio"], [type="checkbox"], [type="submit"], [type="reset"] {
+  cursor: pointer;
+}
+
+/* RESET ENDS */
+
+/* GENERAL STYLE STARTS */
+
+:root {
+  --off-white: hsl(210 90% 98%);
+  --light-blue: hsl(210 90% 82%);
+  --blue: hsl(225 90% 32%);
+  --dark-blue: hsl(240 90% 18%);
+  --xlight-green: hsl(105 60% 92%);
+  --light-green: hsl(105 60% 68%);
+  --green: hsl(120 60% 32%);
+  --dark-green: hsl(120 80% 18%);
+  --gold: hsl(45 100% 68%);
+  --bshadow: 0 0.125rem 0.25rem 0.125rem hsl(0 0% 0% / 0.25);
+  --tshadow: 0 0.125rem 0.125rem var(--dark-green);
+  --img-ada1: #fff9ef;
+  --img-ada2: #ffe8c0;
+  --img-ada3: #ffa000;
+  --img-ada4: #a56800;
+  --img-bella1: #f5f8ff;
+  --img-bella2: #c0e1ff;
+  --img-bella3: #335dff;
+  --img-bella4: #0023ad;
+  --img-celia1: #fff5f5;
+  --img-celia2: #ffd9dd;
+  --img-celia3: #ff5956;
+  --img-celia4: #bd0300;
+  --img-davina1: #fbf5ff;
+  --img-davina2: #f2e5ff;
+  --img-davina3: #d165ff;
+  --img-davina4: #7c00b2;
+}
+body {
+  background-color: var(--off-white);
+  color: var(--dark-green);
+  font-family: "Comic Neue", "Helvetica", "Arial", sans-serif;
+  line-height: 1.25;
+  word-spacing: -0.125ch;
+  overflow-y: scroll;
+}
+#app {
+  width: min(calc(100% - 1rem), calc(50% + 24rem), 72rem);
+  margin-inline: auto;
+}
+:lang(ja) {
+  font-family: "Klee One", "Yu Mincho", sans-serif;
+}
+h1 {
+  font-size: 2rem;
+  white-space: nowrap;
+}
+h2 {
+  margin: 0.25rem;
+  border-bottom: 0.0625rem solid;
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+p, ul, ol {
+  margin-block: 0.25em;
+}
+a {
+  color: var(--blue);
+}
+ruby {
+  ruby-align: center;
+}
+ruby > rt {
+  text-align: center;
+}
+hr {
+  border: none;
+  border-top: 0.0625rem dotted;
+}
+.bi {
+  font-size: 0.75em;
+}
+.round-button {
+  border-radius: 50%;
+  line-height: 1;
+  background-color: var(--light-green);
+  transition: background-color 0.4s, color 0.4s;
+}
+.round-button:is(:hover, :focus-visible) {
+  background-color: var(--dark-green);
+  color: var(--xlight-green);
+}
+.round-button > .bi:only-child {
+  display: block;
+  font-size: 0.625em;
+}
+
+/* GENERAL STYLE ENDS */
+
+/* TRANSITION STYLE STARTS */
+
+.fade-in-enter-active {
+  transition: opacity 0.2s;
+}
+.fade-in-enter-from {
+  opacity: 0;
+}
+.fade-both-enter-active,
+.fade-both-leave-active {
+  transition: opacity 0.4s;
+}
+.fade-both-enter-from,
+.fade-both-leave-to {
+  opacity: 0;
+}
+
+/* TRANSITION STYLE ENDS */
