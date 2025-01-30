@@ -69,7 +69,7 @@ onDeactivated(() => {
         <i class="bi bi-chevron-left"></i>
       </button>
       <Transition name="fade-in" mode="out-in">
-        <figure class="slideshow__artwork-figure" :key="slideshowArtworkIndex">
+        <figure class="slideshow__artwork-figure" :key="slideshowArtwork.id">
           <img
             :src="getArtworkImageSrc(slideshowArtwork)"
             :alt="slideshowArtwork.title"
