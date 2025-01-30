@@ -175,13 +175,15 @@ function goToPrevSlide() {
         No artwork found.
       </span>
       <template v-else>
-        <template v-for="(item, n) in catalogueItems">
+        <template v-for="item in catalogueItems">
           <CatalogueYearIndicator
             v-if="item.type === 'year-indicator'"
+            :key="item.year"
             :year="item.year"
           />
           <CatalogueArtworkButton
             v-if="item.type === 'artwork-button'"
+            :key="item.artworkIndex"
             :tabindex="isLightboxActive ? -1 : 0"
             :artwork="item.artwork"
             @click="openLightbox(item.artworkIndex)"
