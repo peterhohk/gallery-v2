@@ -19,7 +19,7 @@ function handleMiddleClick() {
     type="button"
     class="artwork-catalogue__artwork-button"
     @click="emit('click')"
-    @click.middle.prevent="handleMiddleClick"
+    @mousedown.middle.prevent="handleMiddleClick"
   >
     <img
       :src="getArtworkThumbSrc(artwork)"
