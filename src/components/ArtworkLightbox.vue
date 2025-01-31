@@ -64,7 +64,7 @@ onDeactivated(() => {
 </script>
 
 <template>
-  <div class="lightbox" @click="handleClick">
+  <div class="lightbox" @mousedown="handleClick">
     <figure class="lightbox__artwork-figure" :key="lightboxArtwork.id">
       <img
         :src="getArtworkImageSrc(lightboxArtwork)"
