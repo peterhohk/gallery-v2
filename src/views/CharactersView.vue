@@ -44,21 +44,21 @@ function switchToCharacter(id: CharacterId) {
         class="character-nav__button character-nav__button--bella"
         @click="switchToCharacter('bella')"
       >
-        <img src="@/assets/img/characters/thumb-bella.png" alt="Select character Ada" class="character-nav__button-thumb">
+        <img src="@/assets/img/characters/thumb-bella.png" alt="Select character Bella" class="character-nav__button-thumb">
       </button>
       <button
         type="button"
         class="character-nav__button character-nav__button--celia"
         @click="switchToCharacter('celia')"
       >
-        <img src="@/assets/img/characters/thumb-celia.png" alt="Select character Ada" class="character-nav__button-thumb">
+        <img src="@/assets/img/characters/thumb-celia.png" alt="Select character Celia" class="character-nav__button-thumb">
       </button>
       <button
         type="button"
         class="character-nav__button character-nav__button--davina"
         @click="switchToCharacter('davina')"
       >
-        <img src="@/assets/img/characters/thumb-davina.png" alt="Select character Ada" class="character-nav__button-thumb">
+        <img src="@/assets/img/characters/thumb-davina.png" alt="Select character Davina" class="character-nav__button-thumb">
       </button>
     </div>
   </section>
