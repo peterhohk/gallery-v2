@@ -31,10 +31,10 @@ function handleMiddleClick() {
       <span class="artwork-catalogue__artwork-button-title">{{ artwork.title }}</span>
       <span class="artwork-catalogue__artwork-button-meta">#{{ getArtworkNumber(artwork) }}<i class="bi bi-dot"></i>{{ artwork.date }}</span>
       <div class="artwork-catalogue__artwork-button-character-list">
-        <i v-if="artwork.characters.includes('ada')" class="artwork-catalogue__artwork-button-character--ada bi bi-circle-fill"></i>
-        <i v-if="artwork.characters.includes('bella')" class="artwork-catalogue__artwork-button-character--bella bi bi-hexagon-fill"></i>
-        <i v-if="artwork.characters.includes('celia')" class="artwork-catalogue__artwork-button-character--celia bi bi-star-fill"></i>
-        <i v-if="artwork.characters.includes('davina')" class="artwork-catalogue__artwork-button-character--davina bi bi-suit-diamond-fill"></i>
+        <i v-if="artwork.characters.includes('ada')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--ada bi bi-circle-fill"></i>
+        <i v-if="artwork.characters.includes('bella')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--bella bi bi-hexagon-fill"></i>
+        <i v-if="artwork.characters.includes('celia')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--celia bi bi-star-fill"></i>
+        <i v-if="artwork.characters.includes('davina')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--davina bi bi-suit-diamond-fill"></i>
       </div>
     </div>
     <div v-if="artwork.isFeatured" class="artwork-catalogue__artwork-button-feature-wrapper">

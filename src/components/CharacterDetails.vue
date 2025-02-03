@@ -18,13 +18,13 @@ const props = defineProps<{
       class="character-details__portrait"
     >
     <div class="character-details__names">
-      <h3 class="character-details__name--english">{{ props.selectedCharacter.englisgName }}</h3>
-      <p class="character-details__name--japanese" lang="ja">
+      <h3 class="character-details__name character-details__name--english">{{ props.selectedCharacter.englisgName }}</h3>
+      <p class="character-details__name character-details__name--japanese" lang="ja">
         <ruby v-for="ruby in props.selectedCharacter.japaneseNameRuby">
           {{ ruby.kanji }}<rp>(</rp><rt>{{ ruby.kana }}</rt><rp>)</rp>
         </ruby>
       </p>
-      <p class="character-details__name--romaji">({{ props.selectedCharacter.japaneseNameRomaji }})</p>
+      <p class="character-details__name character-details__name--romaji">({{ props.selectedCharacter.japaneseNameRomaji }})</p>
     </div>
     <div class="character-details__bio">
       <h4 class="character-details__section-heading"><i class="bi bi-person"></i> Bio</h4>
