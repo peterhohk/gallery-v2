@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import ArtworkButton from "@/components/ArtworkButton.vue";
 import ArtworkLightbox from "@/components/ArtworkLightbox.vue";
 
@@ -20,7 +20,9 @@ const filters = ref<FilterOptions>({
   excludeCharacterIds: [],
   category: "all",
 });
-const filteredArtworks = artworks.filter((artwork) => shouldIncludeArtwork(artwork));
+const filteredArtworks = computed(() => {
+  return artworks.filter((artwork) => shouldIncludeArtwork(artwork));
+});
 const isLightboxActive = ref<boolean>(false);
 const lightboxArtworkIndex = ref<number>(0);
 
@@ -135,16 +137,15 @@ function goToPrevSlide() {
       >
         No artwork found.
       </span>
-      <template v-else>
-        <template v-for="artwork in artworks" :key="artwork.id">
-          <ArtworkButton
-            v-show="shouldIncludeArtwork(artwork)"
-            :tabindex="isLightboxActive ? -1 : 0"
-            :artwork="artwork"
-            @click="openLightbox(filteredArtworks.indexOf(artwork))"
-          />
-        </template>
-      </template>
+      <ArtworkButton
+        v-else
+        v-for="artwork in artworks"
+        :key="artwork.id"
+        v-show="shouldIncludeArtwork(artwork)"
+        :tabindex="isLightboxActive ? -1 : 0"
+        :artwork="artwork"
+        @click="openLightbox(filteredArtworks.indexOf(artwork))"
+      />
     </div>
     <Teleport to="body">
       <Transition name="fade-both" mode="out-in">
