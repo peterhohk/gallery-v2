@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import CatalogueArtworkButton from "@/components/CatalogueArtworkButton.vue";
-import CatalogueYearIndicator from "@/components/CatalogueYearIndicator.vue";
+import { ref } from "vue";
+import ArtworkButton from "@/components/ArtworkButton.vue";
 import ArtworkLightbox from "@/components/ArtworkLightbox.vue";
 
 import type { Artwork, ArtworkCategory, CharacterId } from "@/data/types";
@@ -12,19 +11,7 @@ type FilterOptions = {
   includeCharacterIds: CharacterId[],
   excludeCharacterIds: CharacterId[],
   category: ArtworkCategory | "all" | "outfit-all" | "outfit-scw-all",
-  isShowYearIndicators: boolean,
 };
-type ArtworkButtonData = {
-  type: "artwork-button",
-  artwork: Artwork,
-  artworkIndex: number,
-};
-type YearIndicatorData = {
-  type: "year-indicator",
-  year: number,
-}
-type CatalogueItemData = ArtworkButtonData | YearIndicatorData;
-
 const artworks = useArtworks();
 
 const filters = ref<FilterOptions>({
@@ -32,60 +19,38 @@ const filters = ref<FilterOptions>({
   includeCharacterIds: [],
   excludeCharacterIds: [],
   category: "all",
-  isShowYearIndicators: false,
 });
-const filteredArtworks = computed(() => {
-  const output = [] as Artwork[];
-  for (const artwork of artworks) {
-    if (filters.value.isFeaturedOnly && !artwork.isFeatured) {
-      continue;
-    }
-    if (!filters.value.includeCharacterIds.every((characterId) => artwork.characters.includes(characterId))) {
-      continue;
-    }
-    if (filters.value.excludeCharacterIds.some((characterId) => artwork.characters.includes(characterId))) {
-      continue;
-    }
-    if (filters.value.category !== "all") {
-      if (filters.value.category === "outfit-all") {
-        if (!artwork.category.startsWith("outfit")) {
-          continue;
-        }
-      } else if (filters.value.category === "outfit-scw-all") {
-        if (!artwork.category.startsWith("outfit-scw")) {
-          continue;
-        }
-      } else {
-        if (artwork.category !== filters.value.category) {
-          continue;
-        }
-      }
-    }
-    output.push(artwork);
-  }
-  return output;
-});
-const catalogueItems = computed(() => {
-  const output = [] as CatalogueItemData[];
-  if (filteredArtworks.value.length === 0) {
-    return output;
-  }
-  let indicatorYear = Infinity;
-  for (const [index, artwork] of filteredArtworks.value.entries()) {
-    if (filters.value.isShowYearIndicators) {
-      const artworkYear = new Date(artwork.date).getFullYear();
-      if (artworkYear !== indicatorYear) {
-        indicatorYear = artworkYear;
-        output.push({ type: "year-indicator", year: indicatorYear });
-      }
-    }
-    output.push({ type: "artwork-button", artwork: artwork, artworkIndex: index });
-  }
-  return output;
-});
+const filteredArtworks = artworks.filter((artwork) => shouldIncludeArtwork(artwork));
 const isLightboxActive = ref<boolean>(false);
 const lightboxArtworkIndex = ref<number>(0);
 
+function shouldIncludeArtwork(artwork: Artwork) {
+  if (filters.value.isFeaturedOnly && !artwork.isFeatured) {
+    return false;
+  }
+  if (!filters.value.includeCharacterIds.every((characterId) => artwork.characters.includes(characterId))) {
+    return false;
+  }
+  if (filters.value.excludeCharacterIds.some((characterId) => artwork.characters.includes(characterId))) {
+    return false;
+  }
+  if (filters.value.category !== "all") {
+    if (filters.value.category === "outfit-all") {
+      if (!artwork.category.startsWith("outfit")) {
+        return false;
+      }
+    } else if (filters.value.category === "outfit-scw-all") {
+      if (!artwork.category.startsWith("outfit-scw")) {
+        return false;
+      }
+    } else {
+      if (artwork.category !== filters.value.category) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
 function openLightbox(index: number) {
   isLightboxActive.value = true;
   lightboxArtworkIndex.value = index;
@@ -94,7 +59,7 @@ function closeLightbox() {
   isLightboxActive.value = false;
 }
 function goToNextSlide() {
-  if (lightboxArtworkIndex.value === filteredArtworks.value.length - 1) {
+  if (lightboxArtworkIndex.value === filteredArtworks.length - 1) {
     lightboxArtworkIndex.value = 0;
   } else {
     lightboxArtworkIndex.value = lightboxArtworkIndex.value + 1;
@@ -102,7 +67,7 @@ function goToNextSlide() {
 }
 function goToPrevSlide() {
   if (lightboxArtworkIndex.value === 0) {
-    lightboxArtworkIndex.value = filteredArtworks.value.length - 1;
+    lightboxArtworkIndex.value = filteredArtworks.length - 1;
   } else {
     lightboxArtworkIndex.value = lightboxArtworkIndex.value - 1;
   }
@@ -161,32 +126,22 @@ function goToPrevSlide() {
             </optgroup>
           </select>
         </dd>
-        <dt class="artwork-filter__label">View</dt>
-        <dd>
-          <label><input type="checkbox" v-model="filters.isShowYearIndicators"> Show year indicators</label>
-        </dd>
       </dl>
     </form>
     <div class="artwork-catalogue">
       <span
-        v-if="catalogueItems.length === 0"
+        v-if="filteredArtworks.length === 0"
         class="artwork-catalogue__empty-message"
       >
         No artwork found.
       </span>
       <template v-else>
-        <template v-for="item in catalogueItems">
-          <CatalogueYearIndicator
-            v-if="item.type === 'year-indicator'"
-            :key="item.year"
-            :year="item.year"
-          />
-          <CatalogueArtworkButton
-            v-if="item.type === 'artwork-button'"
-            :key="item.artwork.id"
+        <template v-for="artwork in artworks" :key="artwork.id">
+          <ArtworkButton
+            v-show="shouldIncludeArtwork(artwork)"
             :tabindex="isLightboxActive ? -1 : 0"
-            :artwork="item.artwork"
-            @click="openLightbox(item.artworkIndex)"
+            :artwork="artwork"
+            @click="openLightbox(filteredArtworks.indexOf(artwork))"
           />
         </template>
       </template>
