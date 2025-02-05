@@ -61,7 +61,7 @@ function closeLightbox() {
   isLightboxActive.value = false;
 }
 function goToNextSlide() {
-  if (lightboxArtworkIndex.value === filteredArtworks.length - 1) {
+  if (lightboxArtworkIndex.value === filteredArtworks.value.length - 1) {
     lightboxArtworkIndex.value = 0;
   } else {
     lightboxArtworkIndex.value = lightboxArtworkIndex.value + 1;
@@ -69,7 +69,7 @@ function goToNextSlide() {
 }
 function goToPrevSlide() {
   if (lightboxArtworkIndex.value === 0) {
-    lightboxArtworkIndex.value = filteredArtworks.length - 1;
+    lightboxArtworkIndex.value = filteredArtworks.value.length - 1;
   } else {
     lightboxArtworkIndex.value = lightboxArtworkIndex.value - 1;
   }
