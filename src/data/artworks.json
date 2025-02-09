@@ -124,5 +124,6 @@
   {"id": "20241020", "date": "2024-10-20", "title": "Oh?", "caption": "Knock before you enter!", "characters": ["ada"], "category": "outfit-u", "isFeatured": false},
   {"id": "20241111", "date": "2024-11-11", "title": "Sharing Pocky (Dejectedly?)", "caption": "It seems that the Pocky Day Gayness Meter™ has encountered an overflow and is set to a negative value. Which might actually be a good thing, considering if it had kept up with the trend from past years, I'd likely be getting in trouble.", "characters": ["bella", "celia"], "category": "pocky", "isFeatured": false},
   {"id": "20241227", "date": "2024-12-27", "title": "Season of Khaki", "caption": "It would appear that drawing autumn outfits when it's way past autumn is becoming a new yearly tradition.", "characters": ["bella", "davina"], "category": "outfit-scw-autumn", "isFeatured": true},
-  {"id": "20250105", "date": "2025-01-05", "title": "Season of Burgundy", "caption": "It's the new year already? I'll pretend I didn't hear that.", "characters": ["ada", "celia"], "category": "outfit-scw-autumn", "isFeatured": true}
+  {"id": "20250105", "date": "2025-01-05", "title": "Season of Burgundy", "caption": "It's the new year already? I'll pretend I didn't hear that.", "characters": ["ada", "celia"], "category": "outfit-scw-autumn", "isFeatured": true},
+  {"id": "20250210", "date": "2025-02-10", "title": "Hat Maniac", "caption": "So much variety!", "characters": ["davina"], "category": "random", "isFeatured": true}
 ]
