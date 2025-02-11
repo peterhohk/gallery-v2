@@ -10,7 +10,7 @@ const characters = useCharacters();
 
 const selectedCharacterId = ref<CharacterId | null>(null);
 const selectedCharacter = computed(() => {
-  return characters.find((character) => character.id === selectedCharacterId.value);
+  return characters.find((character) => character.id === selectedCharacterId.value) ?? null;
 });
 
 function switchToCharacter(id: CharacterId) {
@@ -23,7 +23,7 @@ function switchToCharacter(id: CharacterId) {
     <h2>Character Introduction</h2>
     <Transition name="fade-in" mode="out-in">
       <CharacterDetailsDefault
-        v-if="selectedCharacter === null"
+        v-if="selectedCharacterId === null || selectedCharacter === null"
       />
       <CharacterDetails
         v-else
