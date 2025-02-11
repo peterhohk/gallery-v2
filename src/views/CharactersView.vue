@@ -8,7 +8,7 @@ import { useCharacters } from "@/data/use";
 
 const characters = useCharacters();
 
-const selectedCharacterId = ref<CharacterId | undefined>(undefined);
+const selectedCharacterId = ref<CharacterId | null>(null);
 const selectedCharacter = computed(() => {
   return characters.find((character) => character.id === selectedCharacterId.value);
 });
@@ -23,7 +23,7 @@ function switchToCharacter(id: CharacterId) {
     <h2>Character Introduction</h2>
     <Transition name="fade-in" mode="out-in">
       <CharacterDetailsDefault
-        v-if="selectedCharacter === undefined"
+        v-if="selectedCharacter === null"
       />
       <CharacterDetails
         v-else
