@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onDeactivated, ref } from "vue";
 import ArtworkButton from "@/components/ArtworkButton.vue";
 import ArtworkLightbox from "@/components/ArtworkLightbox.vue";
 
@@ -74,6 +74,12 @@ function goToPrevSlide() {
     lightboxArtworkIndex.value = lightboxArtworkIndex.value - 1;
   }
 }
+
+// close lightbox on deactivation
+// workaround for bug https://github.com/vuejs/core/issues/5603
+onDeactivated(() => {
+  closeLightbox();
+});
 </script>
 
 <template>
