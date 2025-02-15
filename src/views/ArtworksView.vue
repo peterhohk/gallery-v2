@@ -75,8 +75,6 @@ function goToPrevSlide() {
   }
 }
 
-// close lightbox on deactivation
-// workaround for bug https://github.com/vuejs/core/issues/5603
 onDeactivated(() => {
   closeLightbox();
 });
