@@ -89,6 +89,7 @@ onDeactivated(() => {
         type="button"
         class="lightbox__button round-button"
         @click="emit('prev')"
+        v-if="lightboxArtworks.length > 1"
       >
         <i class="bi bi-chevron-left"></i>
       </button>
@@ -101,6 +102,7 @@ onDeactivated(() => {
         type="button"
         class="lightbox__button round-button"
         @click="emit('next')"
+        v-if="lightboxArtworks.length > 1"
       >
         <i class="bi bi-chevron-right"></i>
       </button>
