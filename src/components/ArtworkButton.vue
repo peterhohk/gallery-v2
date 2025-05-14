@@ -110,6 +110,7 @@ function handleMiddleClick() {
 .artwork-catalogue__artwork-button-feature-wrapper {
   position: absolute;
   inset: 0 0 auto 0;
+  pointer-events: none;
 }
 .artwork-catalogue__artwork-button-feature-text-wrapper {
   position: absolute;
