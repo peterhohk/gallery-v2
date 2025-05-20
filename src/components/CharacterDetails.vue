@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { Character } from "@/data/types";
-import { getCharacterAssetSrc } from "@/util";
+import { Character } from "@/data/models";
 
 const props = defineProps<{
   selectedCharacter: Character,
@@ -13,7 +12,7 @@ const props = defineProps<{
     :class="`character-details--${props.selectedCharacter.id}`"
   >
     <img
-      :src="getCharacterAssetSrc(props.selectedCharacter).portrait"
+      :src="props.selectedCharacter.assetSrc.portrait"
       :alt="`${props.selectedCharacter.englisgName} portrait`"
       class="character-details__portrait"
     >
@@ -72,7 +71,7 @@ const props = defineProps<{
       <div class="character-details__expression-list">
         <div class="character-details__expression-item">
           <img
-            :src="getCharacterAssetSrc(props.selectedCharacter).expr1"
+            :src="props.selectedCharacter.assetSrc.expr1"
             :alt="`${props.selectedCharacter.englisgName} expression 1`"
             class="character-details__expression-image"
           >
@@ -80,7 +79,7 @@ const props = defineProps<{
         </div>
         <div class="character-details__expression-item">
           <img
-            :src="getCharacterAssetSrc(props.selectedCharacter).expr2"
+            :src="props.selectedCharacter.assetSrc.expr2"
             :alt="`${props.selectedCharacter.englisgName} expression 2`"
             class="character-details__expression-image"
           >
@@ -88,7 +87,7 @@ const props = defineProps<{
         </div>
         <div class="character-details__expression-item">
           <img
-            :src="getCharacterAssetSrc(props.selectedCharacter).expr3"
+            :src="props.selectedCharacter.assetSrc.expr3"
             :alt="`${props.selectedCharacter.englisgName} expression 3`"
             class="character-details__expression-image"
           >

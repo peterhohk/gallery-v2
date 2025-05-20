@@ -3,7 +3,8 @@ import { computed, onDeactivated, ref } from "vue";
 import ArtworkButton from "@/components/ArtworkButton.vue";
 import ArtworkLightbox from "@/components/ArtworkLightbox.vue";
 
-import type { Artwork, ArtworkCategory, CharacterId } from "@/data/types";
+import type { ArtworkCategory, CharacterId } from "@/data/models";
+import { Artwork } from "@/data/models";
 import { useArtworks } from "@/data/use";
 
 type FilterOptions = {

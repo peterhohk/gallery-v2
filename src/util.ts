@@ -1,28 +1,3 @@
-import type { Artwork, Character } from "./data/types";
-import { useArtworks } from "./data/use";
-
-export function getArtworkNumber(artwork: Artwork) {
-  const artworks = useArtworks();
-  return artworks.length - artworks.indexOf(artwork);
-}
-
-export function getArtworkImageSrc(artwork: Artwork) {
-  return new URL(`./assets/img/artworks/${artwork.id}_50.png`, import.meta.url).href;
-}
-
-export function getArtworkThumbSrc(artwork: Artwork) {
-  return new URL(`./assets/img/artworks/${artwork.id}_thumb.png`, import.meta.url).href;
-}
-
-export function getCharacterAssetSrc(character: Character) {
-  return {
-    portrait: new URL(`./assets/img/characters/portrait-${character.id}.png`, import.meta.url).href,
-    expr1: new URL(`./assets/img/characters/expr-${character.id}1.png`, import.meta.url).href,
-    expr2: new URL(`./assets/img/characters/expr-${character.id}2.png`, import.meta.url).href,
-    expr3: new URL(`./assets/img/characters/expr-${character.id}3.png`, import.meta.url).href,
-  };
-}
-
 export function howLongAgo(other: Date) {
   function daysInMonth(year: number, month: number) {
     return new Date(year, (month - 1) + 1, 0).getDate();

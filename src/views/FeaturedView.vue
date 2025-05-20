@@ -2,7 +2,6 @@
 import { computed, onActivated, onDeactivated, onMounted, ref } from "vue";
 
 import { useArtworks } from "@/data/use";
-import { getArtworkImageSrc } from "@/util";
 
 const artworks = useArtworks();
 const featuredArtworks = artworks.filter((artwork) => artwork.isFeatured);
@@ -71,7 +70,7 @@ onDeactivated(() => {
       <Transition name="fade-in" mode="out-in">
         <figure class="slideshow__artwork-figure" :key="slideshowArtwork.id">
           <img
-            :src="getArtworkImageSrc(slideshowArtwork)"
+            :src="slideshowArtwork.imageSrc.full"
             :alt="slideshowArtwork.title"
             class="slideshow__artwork-image"
           >

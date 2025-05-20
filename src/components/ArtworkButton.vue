@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { Artwork } from '@/data/types';
-import { getArtworkImageSrc, getArtworkNumber, getArtworkThumbSrc } from '@/util';
+import { Artwork } from '@/data/models';
 
 const props = defineProps<{
   artwork: Artwork,
@@ -10,7 +9,7 @@ const emit = defineEmits<{
 }>();
 
 function handleMiddleClick() {
-  window.open(getArtworkImageSrc(props.artwork));
+  window.open(props.artwork.imageSrc.full);
 }
 </script>
 
@@ -22,14 +21,14 @@ function handleMiddleClick() {
     @mousedown.middle.prevent="handleMiddleClick"
   >
     <img
-      :src="getArtworkThumbSrc(artwork)"
+      :src="artwork.imageSrc.thumb"
       :alt="`Open artwork ${artwork.title}`"
       loading="lazy"
       class="artwork-catalogue__artwork-button-thumb"
     >
     <div class="artwork-catalogue__artwork-button-overlay">
       <span class="artwork-catalogue__artwork-button-title">{{ artwork.title }}</span>
-      <span class="artwork-catalogue__artwork-button-meta">#{{ getArtworkNumber(artwork) }}<i class="bi bi-dot"></i>{{ artwork.date }}</span>
+      <span class="artwork-catalogue__artwork-button-meta">#{{ artwork.orderNumber }}<i class="bi bi-dot"></i>{{ artwork.date }}</span>
       <div class="artwork-catalogue__artwork-button-character-list">
         <i v-if="artwork.characters.includes('ada')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--ada bi bi-circle-fill"></i>
         <i v-if="artwork.characters.includes('bella')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--bella bi bi-hexagon-fill"></i>

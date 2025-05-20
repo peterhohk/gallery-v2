@@ -3,7 +3,7 @@ import { computed, ref } from "vue";
 import CharacterDetails from "@/components/CharacterDetails.vue";
 import CharacterDetailsDefault from "@/components/CharacterDetailsDefault.vue";
 
-import type { CharacterId } from "@/data/types";
+import type { CharacterId } from "@/data/models";
 import { useCharacters } from "@/data/use";
 
 const characters = useCharacters();

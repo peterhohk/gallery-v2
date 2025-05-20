@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, onActivated, onDeactivated, ref } from 'vue';
 
-import type { Artwork } from '@/data/types';
+import { Artwork } from '@/data/models';
 import { useArtworks } from '@/data/use';
-import { getArtworkImageSrc, getArtworkNumber, howLongAgo } from '@/util';
+import { howLongAgo } from '@/util';
 
 const props = defineProps<{
   lightboxArtworkIndex: number,
@@ -26,7 +26,7 @@ function toggleInfoExpanded() {
   isInfoExpanded.value = !isInfoExpanded.value;
 }
 function openOriginal() {
-  window.open(getArtworkImageSrc(lightboxArtwork.value));
+  window.open(lightboxArtwork.value.imageSrc.full);
 }
 function handleClick(event: MouseEvent) {
   if (event.target === document.querySelector(".lightbox") || event.target === document.querySelector(".lightbox__artwork-figure")) {
@@ -67,7 +67,7 @@ onDeactivated(() => {
   <div class="lightbox" @mousedown="handleClick">
     <figure class="lightbox__artwork-figure" :key="lightboxArtwork.id">
       <img
-        :src="getArtworkImageSrc(lightboxArtwork)"
+        :src="lightboxArtwork.imageSrc.full"
         :alt="lightboxArtwork.title"
         loading="lazy"
         class="lightbox__artwork-image"
@@ -77,7 +77,7 @@ onDeactivated(() => {
         :class="{ 'lightbox__artwork-info--expanded': isInfoExpanded }"
       >
         <h3 class="lightbox__artwork-title">{{ lightboxArtwork.title }}</h3>
-        <p><i class="bi bi-hash"></i> {{ getArtworkNumber(lightboxArtwork) }}/{{ artworks.length }}</p>
+        <p><i class="bi bi-hash"></i> {{ lightboxArtwork.orderNumber }}/{{ artworks.length }}</p>
         <p><i class="bi bi-calendar4-event"></i> {{ lightboxArtwork.date }}</p>
         <p><i class="bi bi-clock-history"></i> {{ howLongAgo(new Date(lightboxArtwork.date)) }}</p>
         <hr>
