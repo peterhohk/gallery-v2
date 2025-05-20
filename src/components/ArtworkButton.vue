@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Artwork } from '@/data/models';
+import { Artwork } from "@/data/models";
 
 const props = defineProps<{
   artwork: Artwork,

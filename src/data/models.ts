@@ -1,4 +1,4 @@
-import { useArtworks } from "./use";
+import { useArtworks } from "@/data/use";
 
 export type CharacterId = "ada" | "bella" | "celia" | "davina";
 export type ArtworkCategory = "outfit-vu" | "outfit-scw-spring" | "outfit-scw-summer" | "outfit-scw-autumn" | "outfit-scw-winter" | "outfit-tcw" | "outfit-s" | "outfit-u" | "outfit-v" | "chibi" | "pocky" | "random";
@@ -55,10 +55,10 @@ export class Character {
   }
   get assetSrc() {
     return {
-      portrait: new URL(`../assets/img/characters/portrait-${this.id}.png`, import.meta.url).href,
-      expr1: new URL(`../assets/img/characters/expr-${this.id}1.png`, import.meta.url).href,
-      expr2: new URL(`../assets/img/characters/expr-${this.id}2.png`, import.meta.url).href,
-      expr3: new URL(`../assets/img/characters/expr-${this.id}3.png`, import.meta.url).href,
+      portrait: new URL(`/src/assets/img/characters/portrait-${this.id}.png`, import.meta.url).href,
+      expr1: new URL(`/src/assets/img/characters/expr-${this.id}1.png`, import.meta.url).href,
+      expr2: new URL(`/src/assets/img/characters/expr-${this.id}2.png`, import.meta.url).href,
+      expr3: new URL(`/src/assets/img/characters/expr-${this.id}3.png`, import.meta.url).href,
     };
   }
 }
@@ -95,8 +95,8 @@ export class Artwork {
   }
   get imageSrc() {
     return {
-      full: new URL(`../assets/img/artworks/${this.id}_50.png`, import.meta.url).href,
-      thumb: new URL(`../assets/img/artworks/${this.id}_thumb.png`, import.meta.url).href,
+      full: new URL(`/src/assets/img/artworks/${this.id}_50.png`, import.meta.url).href,
+      thumb: new URL(`/src/assets/img/artworks/${this.id}_thumb.png`, import.meta.url).href,
     };
   }
 }

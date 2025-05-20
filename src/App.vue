@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__title">
-      <img src="./assets/img/peterhohk.png" alt="" class="header__logo">
+      <img src="@/assets/img/peterhohk.png" alt="" class="header__logo">
       <h1>J-ColourS Gallery<sup class="header__title-badge">v2</sup></h1>
     </div>
     <nav class="header__nav">

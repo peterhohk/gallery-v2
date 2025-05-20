@@ -1,6 +1,6 @@
-import { Artwork, Character } from "./models";
-import _characters from "./characters.json";
-import _artworks from "./artworks.json";
+import { Artwork, Character } from "@/data/models";
+import _characters from "@/data/characters.json";
+import _artworks from "@/data/artworks.json";
 
 const characters = _characters.map((_character) => new Character(_character));
 export function useCharacters() {

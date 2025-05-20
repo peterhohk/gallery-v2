@@ -1,8 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import FeaturedView from "./views/FeaturedView.vue";
-import CharactersView from "./views/CharactersView.vue";
-import ArtworksView from "./views/ArtworksView.vue";
+import FeaturedView from "@/views/FeaturedView.vue";
+import CharactersView from "@/views/CharactersView.vue";
+import ArtworksView from "@/views/ArtworksView.vue";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),

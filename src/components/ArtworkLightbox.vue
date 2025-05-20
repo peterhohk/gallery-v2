@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, onActivated, onDeactivated, ref } from 'vue';
+import { computed, onActivated, onDeactivated, ref } from "vue";
 
-import { Artwork } from '@/data/models';
-import { useArtworks } from '@/data/use';
-import { howLongAgo } from '@/util';
+import { Artwork } from "@/data/models";
+import { useArtworks } from "@/data/use";
+import { howLongAgo } from "@/util";
 
 const props = defineProps<{
   lightboxArtworkIndex: number,
