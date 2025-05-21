@@ -16,7 +16,7 @@ function handleMiddleClick() {
 <template>
   <button
     type="button"
-    class="artwork-catalogue__artwork-button"
+    class="artwork-button"
     @click="emit('click')"
     @mousedown.middle.prevent="handleMiddleClick"
   >
@@ -24,43 +24,43 @@ function handleMiddleClick() {
       :src="artwork.imageSrc.thumb"
       :alt="`Open artwork ${artwork.title}`"
       loading="lazy"
-      class="artwork-catalogue__artwork-button-thumb"
+      class="artwork-button__thumb"
     >
-    <div class="artwork-catalogue__artwork-button-overlay">
-      <span class="artwork-catalogue__artwork-button-title">{{ artwork.title }}</span>
-      <span class="artwork-catalogue__artwork-button-meta">#{{ artwork.orderNumber }}<i class="bi bi-dot"></i>{{ artwork.date }}</span>
-      <div class="artwork-catalogue__artwork-button-character-list">
-        <i v-if="artwork.characters.includes('ada')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--ada bi bi-circle-fill"></i>
-        <i v-if="artwork.characters.includes('bella')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--bella bi bi-hexagon-fill"></i>
-        <i v-if="artwork.characters.includes('celia')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--celia bi bi-star-fill"></i>
-        <i v-if="artwork.characters.includes('davina')" class="artwork-catalogue__artwork-button-character artwork-catalogue__artwork-button-character--davina bi bi-suit-diamond-fill"></i>
+    <div class="artwork-button__overlay">
+      <span class="artwork-button__title">{{ artwork.title }}</span>
+      <span class="artwork-button__meta">#{{ artwork.orderNumber }}<i class="bi bi-dot"></i>{{ artwork.date }}</span>
+      <div class="artwork-button__character-list">
+        <i v-if="artwork.characters.includes('ada')" class="artwork-button__character artwork-button__character--ada bi bi-circle-fill"></i>
+        <i v-if="artwork.characters.includes('bella')" class="artwork-button__character artwork-button__character--bella bi bi-hexagon-fill"></i>
+        <i v-if="artwork.characters.includes('celia')" class="artwork-button__character artwork-button__character--celia bi bi-star-fill"></i>
+        <i v-if="artwork.characters.includes('davina')" class="artwork-button__character artwork-button__character--davina bi bi-suit-diamond-fill"></i>
       </div>
     </div>
-    <div v-if="artwork.isFeatured" class="artwork-catalogue__artwork-button-feature-wrapper">
-      <div class="artwork-catalogue__artwork-button-feature-text-wrapper">
-        <span class="artwork-catalogue__artwork-button-feature-text">Featured</span>
+    <div v-if="artwork.isFeatured" class="artwork-button__feature-wrapper">
+      <div class="artwork-button__feature-text-wrapper">
+        <span class="artwork-button__feature-text">Featured</span>
       </div>
-      <div class="artwork-catalogue__artwork-button-feature-badge-glow"></div>
-      <img src="@/assets/img/feature-badge.svg" alt="Featured artwork" class="artwork-catalogue__artwork-button-feature-badge">
+      <div class="artwork-button__feature-badge-glow"></div>
+      <img src="@/assets/img/feature-badge.svg" alt="Featured artwork" class="artwork-button__feature-badge">
     </div>
   </button>
 </template>
 
 <style scoped>
-.artwork-catalogue__artwork-button {
+.artwork-button {
   position: relative;
   aspect-ratio: 1;
   border: 0.0625rem solid;
   border-radius: 0.5rem;
   transition: translate 0.4s;
 }
-.artwork-catalogue__artwork-button-thumb {
+.artwork-button__thumb {
   width: 100%;
   object-fit: cover;
   border-radius: 0.4375rem;
   pointer-events: none;
 }
-.artwork-catalogue__artwork-button-overlay {
+.artwork-button__overlay {
   position: absolute;
   inset: 0;
   display: grid;
@@ -76,13 +76,13 @@ function handleMiddleClick() {
   opacity: 0;
   transition: visibility 0.4s, opacity 0.4s;
 }
-.artwork-catalogue__artwork-button-title {
+.artwork-button__title {
   line-height: 1;
 }
-.artwork-catalogue__artwork-button-meta {
+.artwork-button__meta {
   font-size: 0.75rem;
 }
-.artwork-catalogue__artwork-button-character-list {
+.artwork-button__character-list {
   position: absolute;
   inset: auto 0 0.25rem 0;
   display: flex;
@@ -94,29 +94,29 @@ function handleMiddleClick() {
     0.0625rem 0  var(--xlight-green),
     -0.0625rem 0 var(--xlight-green);
 }
-.artwork-catalogue__artwork-button-character--ada {
+.artwork-button__character--ada {
   color: var(--img-ada3);
 }
-.artwork-catalogue__artwork-button-character--bella {
+.artwork-button__character--bella {
   color: var(--img-bella3);
 }
-.artwork-catalogue__artwork-button-character--celia {
+.artwork-button__character--celia {
   color: var(--img-celia3);
 }
-.artwork-catalogue__artwork-button-character--davina {
+.artwork-button__character--davina {
   color: var(--img-davina3);
 }
-.artwork-catalogue__artwork-button-feature-wrapper {
+.artwork-button__feature-wrapper {
   position: absolute;
   inset: 0 0 auto 0;
   pointer-events: none;
 }
-.artwork-catalogue__artwork-button-feature-text-wrapper {
+.artwork-button__feature-text-wrapper {
   position: absolute;
   inset: 0.25rem 2rem auto 0;
   overflow: hidden;
 }
-.artwork-catalogue__artwork-button-feature-text {
+.artwork-button__feature-text {
   display: inline-block;
   width: 100%;
   font-size: 1.25rem;
@@ -128,7 +128,7 @@ function handleMiddleClick() {
   translate: -100%;
   transition: visibility 0.4s, translate 0.4s;
 }
-.artwork-catalogue__artwork-button-feature-badge-glow {
+.artwork-button__feature-badge-glow {
   position: absolute;
   top: 0.5rem;
   right: 0.75rem;
@@ -141,7 +141,7 @@ function handleMiddleClick() {
   opacity: 0;
   transition: visibility 0.4s, opacity 0.4s;
 }
-.artwork-catalogue__artwork-button-feature-badge {
+.artwork-button__feature-badge {
   position: absolute;
   top: 0;
   right: 0.25rem;
@@ -149,18 +149,18 @@ function handleMiddleClick() {
   height: 2rem;
   max-height: none;
 }
-.artwork-catalogue__artwork-button:is(:hover, :focus-visible) {
+.artwork-button:is(:hover, :focus-visible) {
   translate: 0 -1rem;
 }
-.artwork-catalogue__artwork-button:is(:hover, :focus-visible) .artwork-catalogue__artwork-button-overlay {
+.artwork-button:is(:hover, :focus-visible) .artwork-button__overlay {
   visibility: visible;
   opacity: 1;
 }
-.artwork-catalogue__artwork-button:is(:hover, :focus-visible) .artwork-catalogue__artwork-button-feature-text {
+.artwork-button:is(:hover, :focus-visible) .artwork-button__feature-text {
   visibility: visible;
   translate: none;
 }
-.artwork-catalogue__artwork-button:is(:hover, :focus-visible) .artwork-catalogue__artwork-button-feature-badge-glow {
+.artwork-button:is(:hover, :focus-visible) .artwork-button__feature-badge-glow {
   visibility: visible;
   opacity: 1;
 }
