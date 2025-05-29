@@ -79,7 +79,7 @@
   {"id": "20210826", "date": "2021-08-26", "title": "Spicy Summer Garments", "caption": "This year's theme is fusion bikini, which combines the iconic swimsuit with various costumes!", "characters": ["ada", "celia"], "category": "outfit-s", "isFeatured": false},
   {"id": "20210911", "date": "2021-09-11", "title": "What Is Life Without Some Spice?", "caption": "Living life on the edge, I see.", "characters": ["bella", "davina"], "category": "outfit-s", "isFeatured": false},
   {"id": "20211006", "date": "2021-10-06", "title": "Viridis, Coming Soon", "caption": "A work in progress.", "characters": ["davina"], "category": "outfit-vu", "isFeatured": false},
-  {"id": "20211017", "date": "2021-10-17", "title": "Viridis Attire Overhaul", "caption": "The original one was made in 2014. Can you believe it?", "characters": ["ada", "bella", "celia", "davina"], "category": "outfit-vu", "isFeatured": true},
+  {"id": "20211017", "date": "2021-10-17", "title": "Viridis Attire Overhaul", "caption": "The original one was made in 2014. Can you believe it?", "characters": ["ada", "bella", "celia", "davina"], "category": "outfit-vu", "isFeatured": false},
   {"id": "20211111", "date": "2021-11-11", "title": "Sharing Pocky (Aggressively?)", "caption": "What is it about these biscuit sticks that are turning anime girls gay? And why am I all for it?", "characters": ["ada", "celia"], "category": "pocky", "isFeatured": false},
   {"id": "20211205", "date": "2021-12-05", "title": "Season of Beige", "caption": "Winter doesn't start until winter solstice so I'm not late!", "characters": ["ada", "bella"], "category": "outfit-scw-autumn", "isFeatured": false},
   {"id": "20211207", "date": "2021-12-07", "title": "Season of Maroon", "caption": "Mushroom?", "characters": ["celia", "davina"], "category": "outfit-scw-autumn", "isFeatured": false},
@@ -89,8 +89,8 @@
   {"id": "20220226", "date": "2022-02-26", "title": "Summiteers", "caption": "Used one of my hiking photos as background.", "characters": ["ada", "celia"], "category": "outfit-tcw", "isFeatured": false},
   {"id": "20220311", "date": "2022-03-11", "title": "Wayfinders", "caption": "Used another one of my hiking photos as background.", "characters": ["bella", "davina"], "category": "outfit-tcw", "isFeatured": false},
   {"id": "20220406", "date": "2022-04-06", "title": "Soothing Sprinkles", "caption": "I'm experiencing an inexplicable urge to draw rain scenes in April.", "characters": ["ada"], "category": "random", "isFeatured": false},
-  {"id": "20220415", "date": "2022-04-15", "title": "Sakuramai Uniform Reference Sheet", "caption": "All of this just because I wanted to draw the backside of this uniform.", "characters": ["celia"], "category": "outfit-v", "isFeatured": true},
-  {"id": "20220507", "date": "2022-05-07", "title": "Chibi Batch (Outfit Swaps)", "caption": "Something's wrong, I can feel it.", "characters": ["ada", "bella", "celia", "davina"], "category": "chibi", "isFeatured": true},
+  {"id": "20220415", "date": "2022-04-15", "title": "Sakuramai Uniform Reference Sheet", "caption": "All of this just because I wanted to draw the backside of this uniform.", "characters": ["celia"], "category": "outfit-v", "isFeatured": false},
+  {"id": "20220507", "date": "2022-05-07", "title": "Chibi Batch (Outfit Swaps)", "caption": "Something's wrong, I can feel it.", "characters": ["ada", "bella", "celia", "davina"], "category": "chibi", "isFeatured": false},
   {"id": "20220519", "date": "2022-05-19", "title": "Hanami Hues", "caption": "Both of them share the same five colours.", "characters": ["celia", "davina"], "category": "outfit-scw-spring", "isFeatured": false},
   {"id": "20220524", "date": "2022-05-24", "title": "Vernal Vibes", "caption": "Both of them also share the same five colours.", "characters": ["ada", "bella"], "category": "outfit-scw-spring", "isFeatured": false},
   {"id": "20220625", "date": "2022-06-25", "title": "Lab Girl", "caption": "Lab coat!", "characters": ["bella"], "category": "random", "isFeatured": false},
@@ -101,8 +101,8 @@
   {"id": "20220925", "date": "2022-09-25", "title": "Memories", "caption": "I've drawn 100 things! Only took 4.5 years.", "characters": ["ada", "bella", "celia", "davina"], "category": "random", "isFeatured": true},
   {"id": "20221031", "date": "2022-10-31", "title": "Hairstyle Experiment", "caption": "Ah yes, the forbidden knowledge of how to draw hair.", "characters": ["celia"], "category": "random", "isFeatured": false},
   {"id": "20221111", "date": "2022-11-11", "title": "Sharing Pocky (Passionately?)", "caption": "Too passionately, perhaps.", "characters": ["ada", "celia"], "category": "pocky", "isFeatured": true},
-  {"id": "20221219", "date": "2022-12-19", "title": "Now is not the time for Autumn Outfits", "caption": "Am I late?", "characters": ["ada", "celia"], "category": "outfit-scw-autumn", "isFeatured": true},
-  {"id": "20221226", "date": "2022-12-26", "title": "Seasons aren't real", "caption": "By all definitions of seasons, it's winter right now.", "characters": ["bella", "davina"], "category": "outfit-scw-autumn", "isFeatured": true},
+  {"id": "20221219", "date": "2022-12-19", "title": "Now is not the time for Autumn Outfits", "caption": "Am I late?", "characters": ["ada", "celia"], "category": "outfit-scw-autumn", "isFeatured": false},
+  {"id": "20221226", "date": "2022-12-26", "title": "Seasons aren't real", "caption": "By all definitions of seasons, it's winter right now.", "characters": ["bella", "davina"], "category": "outfit-scw-autumn", "isFeatured": false},
   {"id": "20230131", "date": "2023-01-31", "title": "Hot Chocolate", "caption": "Warms your body, warms your soul.", "characters": ["bella", "davina"], "category": "random", "isFeatured": false},
   {"id": "20230228", "date": "2023-02-28", "title": "School Bag", "caption": "Should've been included in the Viridis Attire Overhaul. Oh well.", "characters": ["ada", "bella"], "category": "random", "isFeatured": false},
   {"id": "20230320", "date": "2023-03-20", "title": "Pristine Purity", "caption": "After all these years, my shading is still a mess.", "characters": ["ada", "bella", "celia", "davina"], "category": "outfit-tcw", "isFeatured": true},
@@ -128,5 +128,5 @@
   {"id": "20250210", "date": "2025-02-10", "title": "Hat Maniac", "caption": "So much variety!", "characters": ["davina"], "category": "random", "isFeatured": true},
   {"id": "20250330", "date": "2025-03-30", "title": "Sharks on the Loose", "caption": "Don't worry, the sharks are harmless. Cuddly, even.", "characters": ["davina"], "category": "random", "isFeatured": false},
   {"id": "20250427", "date": "2025-04-27", "title": "Filler", "caption": "This is blatantly something I whipped out just to fulfil my monthly art goal.", "characters": ["bella"], "category": "random", "isFeatured": false},
-  {"id": "20250528", "date": "2025-05-28", "title": "Action! Ada", "caption": "I've been doing gesture drawing lately, and it feels wasteful to not turn some of the poses into fully fleshed out drawings.", "characters": ["ada"], "category": "random", "isFeatured": true}
+  {"id": "20250528", "date": "2025-05-28", "title": "Action! Ada", "caption": "I've been doing gesture drawing lately, and it feels wasteful to not turn some of the poses into fully fleshed out drawings.", "characters": ["ada"], "category": "random", "isFeatured": false}
 ]
