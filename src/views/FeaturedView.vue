@@ -118,9 +118,9 @@ onDeactivated(() => {
   position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 1;
 }
 .slideshow__artwork-image {
+  aspect-ratio: 1;
   box-shadow: var(--bshadow);
 }
 .slideshow__artwork-title {
