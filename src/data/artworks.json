@@ -128,5 +128,6 @@
   {"id": "20250210", "date": "2025-02-10", "title": "Hat Maniac", "caption": "So much variety!", "characters": ["davina"], "category": "random", "isFeatured": true},
   {"id": "20250330", "date": "2025-03-30", "title": "Sharks on the Loose", "caption": "Don't worry, the sharks are harmless. Cuddly, even.", "characters": ["davina"], "category": "random", "isFeatured": false},
   {"id": "20250427", "date": "2025-04-27", "title": "Filler", "caption": "This is blatantly something I whipped out just to fulfil my monthly art goal.", "characters": ["bella"], "category": "random", "isFeatured": false},
-  {"id": "20250528", "date": "2025-05-28", "title": "Action! Ada", "caption": "I've been doing gesture drawing lately, and it feels wasteful to not turn some of the poses into fully fleshed out drawings.", "characters": ["ada"], "category": "random", "isFeatured": false}
+  {"id": "20250528", "date": "2025-05-28", "title": "Action! Ada", "caption": "I've been doing gesture drawing lately, and it feels wasteful to not turn some of the poses into fully fleshed out drawings.", "characters": ["ada"], "category": "random", "isFeatured": false},
+  {"id": "20250630", "date": "2025-06-30", "title": "Summer Refreshment", "caption": "This colour palette feels very summer.", "characters": ["ada", "bella"], "category": "outfit-scw-summer", "isFeatured": true}
 ]
