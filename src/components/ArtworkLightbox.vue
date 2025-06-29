@@ -167,8 +167,9 @@ onDeactivated(() => {
 .lightbox__artwork-figure {
   grid-area: image;
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }

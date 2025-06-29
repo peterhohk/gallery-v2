@@ -116,11 +116,12 @@ onDeactivated(() => {
 }
 .slideshow__artwork-figure {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
 }
 .slideshow__artwork-image {
-  aspect-ratio: 1;
   box-shadow: var(--bshadow);
 }
 .slideshow__artwork-title {
