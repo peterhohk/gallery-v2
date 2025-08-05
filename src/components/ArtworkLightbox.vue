@@ -84,12 +84,11 @@ onDeactivated(() => {
         <p>{{ lightboxArtwork.caption }}</p>
       </figcaption>
     </figure>
-    <div class="lightbox__button-wrapper lightbox__button-wrapper--prev">
+    <div v-if="lightboxArtworks.length > 1" class="lightbox__button-wrapper lightbox__button-wrapper--prev">
       <button
         type="button"
         class="lightbox__button round-button"
         @click="emit('prev')"
-        v-if="lightboxArtworks.length > 1"
       >
         <i class="bi bi-chevron-left"></i>
       </button>
@@ -97,12 +96,11 @@ onDeactivated(() => {
         Newer Artwork (Left)
       </span>
     </div>
-    <div class="lightbox__button-wrapper lightbox__button-wrapper--next">
+    <div v-if="lightboxArtworks.length > 1" class="lightbox__button-wrapper lightbox__button-wrapper--next">
       <button
         type="button"
         class="lightbox__button round-button"
         @click="emit('next')"
-        v-if="lightboxArtworks.length > 1"
       >
         <i class="bi bi-chevron-right"></i>
       </button>
