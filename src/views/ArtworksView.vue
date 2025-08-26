@@ -91,7 +91,7 @@ onDeactivated(() => {
         <dd>
           <label><input type="checkbox" v-model="filters.isFeaturedOnly"> Show featured artworks only</label>
         </dd>
-        <dt class="artwork-filter__label">Must include:</dt>
+        <dt class="artwork-filter__label">Include:</dt>
         <dd>
           <ul class="artwork-filter__inline-list">
             <li><label><input type="checkbox" v-model="filters.includeCharacterIds" value="ada"> Ada</label></li>
@@ -100,7 +100,7 @@ onDeactivated(() => {
             <li><label><input type="checkbox" v-model="filters.includeCharacterIds" value="davina"> Davina</label></li>
           </ul>
         </dd>
-        <dt class="artwork-filter__label">Must exclude:</dt>
+        <dt class="artwork-filter__label">Exclude:</dt>
         <dd>
           <ul class="artwork-filter__inline-list">
             <li><label><input type="checkbox" v-model="filters.excludeCharacterIds" value="ada"> Ada</label></li>
