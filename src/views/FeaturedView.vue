@@ -90,11 +90,12 @@ onDeactivated(() => {
     </div>
     <div class="slideshow-pagination">
       <button
-        v-for="(_, n) in featuredArtworks"
+        v-for="(artwork, index) in featuredArtworks"
         type="button"
         class="slideshow-pagination__button round-button"
-        :class="{ 'slideshow-pagination__button--active': slideshowArtworkIndex === n }"
-        @click="goToSlide(n)"
+        :class="{ 'slideshow-pagination__button--active': slideshowArtworkIndex === index }"
+        :aria-label="`Jump to artwork ${artwork.title}`"
+        @click="goToSlide(index)"
       >
       </button>
     </div>

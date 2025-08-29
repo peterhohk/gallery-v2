@@ -22,7 +22,7 @@ function handleMiddleClick() {
   >
     <img
       :src="artwork.imageSrc.thumb"
-      :alt="`Open artwork ${artwork.title}`"
+      :alt="artwork.title"
       loading="lazy"
       class="artwork-button__thumb"
     >
