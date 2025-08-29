@@ -81,10 +81,6 @@ body {
 :lang(ja) {
   font-family: "Klee One", "Yu Mincho", sans-serif;
 }
-h1 {
-  font-size: 2rem;
-  white-space: nowrap;
-}
 h2 {
   margin: 0.25rem;
   border-bottom: 0.0625rem solid;
@@ -133,7 +129,7 @@ input[type="radio"], input[type="checkbox"] {
 /* TRANSITION STYLE STARTS */
 
 .fade-in-enter-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.4s;
 }
 .fade-in-enter-from {
   opacity: 0;
