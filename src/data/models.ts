@@ -55,6 +55,7 @@ export class Character {
   }
   get assetSrc() {
     return {
+      thumb: new URL(`/src/assets/img/characters/thumb-${this.id}.png`, import.meta.url).href,
       portrait: new URL(`/src/assets/img/characters/portrait-${this.id}.png`, import.meta.url).href,
       expr1: new URL(`/src/assets/img/characters/expr-${this.id}1.png`, import.meta.url).href,
       expr2: new URL(`/src/assets/img/characters/expr-${this.id}2.png`, import.meta.url).href,

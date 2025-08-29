@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import CharacterDetails from "@/components/CharacterDetails.vue";
 import CharacterDetailsDefault from "@/components/CharacterDetailsDefault.vue";
 
-import type { CharacterId } from "@/data/models";
+import type { Character } from "@/data/models";
 import { useCharacters } from "@/data/use";
 
 const characters = useCharacters();
 
-const selectedCharacterId = ref<CharacterId | null>(null);
-const selectedCharacter = computed(() => {
-  return characters.find((character) => character.id === selectedCharacterId.value) ?? null;
-});
+const selectedCharacter = ref<Character | null>(null);
 
-function switchToCharacter(id: CharacterId) {
-  selectedCharacterId.value = id;
+function switchToCharacter(character: Character) {
+  selectedCharacter.value = character;
 }
 </script>
 
@@ -23,42 +20,23 @@ function switchToCharacter(id: CharacterId) {
     <h2>Character Introduction</h2>
     <Transition name="fade-in" mode="out-in">
       <CharacterDetailsDefault
-        v-if="selectedCharacterId === null || selectedCharacter === null"
+        v-if="selectedCharacter === null"
       />
       <CharacterDetails
         v-else
         :selected-character="selectedCharacter"
-        :key="selectedCharacterId"
+        :key="selectedCharacter.id"
       />
     </Transition>
     <div class="character-nav">
       <button
+        v-for="character in characters"
         type="button"
-        class="character-nav__button character-nav__button--ada"
-        @click="switchToCharacter('ada')"
+        class="character-nav__button"
+        :class="`character-nav__button--${character.id}`"
+        @click="switchToCharacter(character)"
       >
-        <img src="@/assets/img/characters/thumb-ada.png" alt="Ada" class="character-nav__button-thumb">
-      </button>
-      <button
-        type="button"
-        class="character-nav__button character-nav__button--bella"
-        @click="switchToCharacter('bella')"
-      >
-        <img src="@/assets/img/characters/thumb-bella.png" alt="Bella" class="character-nav__button-thumb">
-      </button>
-      <button
-        type="button"
-        class="character-nav__button character-nav__button--celia"
-        @click="switchToCharacter('celia')"
-      >
-        <img src="@/assets/img/characters/thumb-celia.png" alt="Celia" class="character-nav__button-thumb">
-      </button>
-      <button
-        type="button"
-        class="character-nav__button character-nav__button--davina"
-        @click="switchToCharacter('davina')"
-      >
-        <img src="@/assets/img/characters/thumb-davina.png" alt="Davina" class="character-nav__button-thumb">
+        <img :src="character.assetSrc.thumb" :alt="character.englisgName" class="character-nav__button-thumb">
       </button>
     </div>
   </section>
@@ -72,7 +50,6 @@ function switchToCharacter(id: CharacterId) {
   gap: 0.25rem;
 }
 .character-nav__button {
-  aspect-ratio: 1;
   max-width: 8rem;
   border: 0.25rem solid;
   border-radius: 50%;
@@ -94,6 +71,7 @@ function switchToCharacter(id: CharacterId) {
   translate: 0 -1rem;
 }
 .character-nav__button-thumb {
+  aspect-ratio: 1;
   border-radius: 50%;
 }
 </style>
