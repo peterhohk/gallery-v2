@@ -130,5 +130,6 @@
   {"id": "20250427", "date": "2025-04-27", "title": "Filler", "caption": "This is blatantly something I whipped out just to fulfil my monthly art goal.", "characters": ["bella"], "category": "random", "isFeatured": false},
   {"id": "20250528", "date": "2025-05-28", "title": "Action! Ada", "caption": "I've been doing gesture drawing lately, and it feels wasteful to not turn some of the poses into fully fleshed out drawings.", "characters": ["ada"], "category": "random", "isFeatured": false},
   {"id": "20250630", "date": "2025-06-30", "title": "Summer Refreshment", "caption": "This colour palette feels very summer.", "characters": ["ada", "bella"], "category": "outfit-scw-summer", "isFeatured": false},
-  {"id": "20250723", "date": "2025-07-23", "title": "Summer Replenishment", "caption": "Maybe a palette of three colours is a bit limiting, though.", "characters": ["celia", "davina"], "category": "outfit-scw-summer", "isFeatured": false}
+  {"id": "20250723", "date": "2025-07-23", "title": "Summer Replenishment", "caption": "Maybe a palette of three colours is a bit limiting, though.", "characters": ["celia", "davina"], "category": "outfit-scw-summer", "isFeatured": false},
+  {"id": "20250829", "date": "2025-08-29", "title": "Inner Layer", "caption": "In which I realised I need to actually study how to shade clothes and stop operating based solely on intuition. Or, as I call it, \"vibe shading\". ", "characters": ["davina"], "category": "random", "isFeatured": true}
 ]
