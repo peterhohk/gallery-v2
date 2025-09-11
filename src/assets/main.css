@@ -66,13 +66,15 @@ label, button, select, summary, [type="radio"], [type="checkbox"], [type="submit
   --img-davina3: #d165ff;
   --img-davina4: #7c00b2;
 }
+html {
+  scrollbar-gutter: stable;
+}
 body {
   background-color: var(--off-white);
   color: var(--dark-green);
   font-family: "Comic Neue", "Helvetica", "Arial", sans-serif;
   line-height: 1.25;
   word-spacing: -0.125ch;
-  overflow-y: scroll;
 }
 #app {
   width: min(calc(100% - 1rem), calc(50% + 24rem), 72rem);
