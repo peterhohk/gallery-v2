@@ -54,6 +54,12 @@ function shouldIncludeArtwork(artwork: Artwork) {
   }
   return true;
 }
+function resetFilters() {
+  filters.value.isFeaturedOnly = false;
+  filters.value.includeCharacterIds = [];
+  filters.value.excludeCharacterIds = [];
+  filters.value.category = "all";
+}
 function openLightbox(index: number) {
   isLightboxActive.value = true;
   lightboxArtworkIndex.value = index;
@@ -134,6 +140,14 @@ onDeactivated(() => {
           </select>
         </dd>
       </dl>
+      <hr>
+      <button
+        type="button"
+        class="artwork-filter__reset-button"
+        @click="resetFilters"
+      >
+        reset
+      </button>
     </form>
     <div class="artwork-catalogue">
       <span
@@ -208,6 +222,18 @@ onDeactivated(() => {
   display: block;
   max-width: 12rem;
   height: 1.25rem;
+}
+.artwork-filter__reset-button {
+  display: block;
+  margin-left: auto;
+  padding-inline: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  transition: background-color 0.4s, color 0.4s;
+}
+.artwork-filter__reset-button:is(:hover, :focus-visible) {
+  background-color: var(--light-blue);
+  color: var(--blue);
 }
 .artwork-catalogue {
   display: grid;

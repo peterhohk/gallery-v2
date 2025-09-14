@@ -102,6 +102,7 @@ ruby > rt {
   text-align: center;
 }
 hr {
+  margin-block: 0.25em;
   border: none;
   border-top: 0.0625rem dotted;
 }
