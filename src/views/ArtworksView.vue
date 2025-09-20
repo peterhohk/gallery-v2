@@ -163,7 +163,7 @@ onDeactivated(() => {
         v-show="shouldIncludeArtwork(artwork)"
         :tabindex="isLightboxActive ? -1 : 0"
         :artwork="artwork"
-        @click="openLightbox(filteredArtworks.indexOf(artwork))"
+        @view="openLightbox(filteredArtworks.indexOf(artwork))"
       />
     </div>
     <Teleport to="body">

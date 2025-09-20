@@ -5,10 +5,10 @@ const props = defineProps<{
   artwork: Artwork,
 }>();
 const emit = defineEmits<{
-  (e: "click"): void,
+  (e: "view"): void,
 }>();
 
-function handleMiddleClick() {
+function openOriginal() {
   window.open(props.artwork.imageSrc.full);
 }
 </script>
@@ -17,8 +17,8 @@ function handleMiddleClick() {
   <button
     type="button"
     class="artwork-button"
-    @click="emit('click')"
-    @mousedown.middle.prevent="handleMiddleClick"
+    @click="emit('view')"
+    @mousedown.middle.prevent="openOriginal"
   >
     <img
       :src="artwork.imageSrc.thumb"
