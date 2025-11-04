@@ -30,7 +30,7 @@ function openOriginal() {
 }
 function handleClick(event: MouseEvent) {
   const eventTarget = event.target as HTMLElement;
-  if ([...document.querySelectorAll(".lightbox, .lightbox__artwork-figure")].includes(eventTarget)) {
+  if (eventTarget.matches(".lightbox, .lightbox__artwork-figure")) {
     emit("close");
   }
 }
