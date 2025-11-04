@@ -29,7 +29,8 @@ function openOriginal() {
   window.open(lightboxArtwork.value.imageSrc.full);
 }
 function handleClick(event: MouseEvent) {
-  if (event.target === document.querySelector(".lightbox") || event.target === document.querySelector(".lightbox__artwork-figure")) {
+  const eventTarget = event.target as HTMLElement;
+  if ([...document.querySelectorAll(".lightbox, .lightbox__artwork-figure")].includes(eventTarget)) {
     emit("close");
   }
 }
@@ -65,10 +66,15 @@ onDeactivated(() => {
 
 <template>
   <div class="lightbox" @mousedown="handleClick">
-    <figure class="lightbox__artwork-figure" :key="lightboxArtwork.id">
+    <figure
+      v-for="artwork in artworks"
+      :key="artwork.id"
+      v-show="artwork === lightboxArtwork"
+      class="lightbox__artwork-figure"
+    >
       <img
-        :src="lightboxArtwork.imageSrc.full"
-        :alt="lightboxArtwork.title"
+        :src="artwork.imageSrc.full"
+        :alt="artwork.title"
         loading="lazy"
         class="lightbox__artwork-image"
       >
@@ -76,12 +82,12 @@ onDeactivated(() => {
         class="lightbox__artwork-info"
         :class="{ 'lightbox__artwork-info--expanded': isInfoExpanded }"
       >
-        <h3 class="lightbox__artwork-title">{{ lightboxArtwork.title }}</h3>
-        <p><i class="bi bi-hash"></i> {{ lightboxArtwork.orderNumber }}/{{ artworks.length }}</p>
-        <p><i class="bi bi-calendar4-event"></i> {{ lightboxArtwork.date }}</p>
-        <p><i class="bi bi-clock-history"></i> {{ howLongAgo(new Date(lightboxArtwork.date)) }}</p>
+        <h3 class="lightbox__artwork-title">{{ artwork.title }}</h3>
+        <p><i class="bi bi-hash"></i> {{ artwork.orderNumber }}/{{ artworks.length }}</p>
+        <p><i class="bi bi-calendar4-event"></i> {{ artwork.date }}</p>
+        <p><i class="bi bi-clock-history"></i> {{ howLongAgo(new Date(artwork.date)) }}</p>
         <hr>
-        <p>{{ lightboxArtwork.caption }}</p>
+        <p>{{ artwork.caption }}</p>
       </figcaption>
     </figure>
     <div v-if="lightboxArtworks.length > 1" class="lightbox__button-wrapper lightbox__button-wrapper--prev">
