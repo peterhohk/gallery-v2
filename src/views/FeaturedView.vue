@@ -70,6 +70,7 @@ onDeactivated(() => {
           <img
             :src="artwork.imageSrc.full"
             :alt="artwork.title"
+            loading="lazy"
             class="slideshow__artwork-image"
           >
           <figcaption class="slideshow__artwork-title">
