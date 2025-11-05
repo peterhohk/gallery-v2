@@ -1,40 +1,51 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import CharacterDetails from "@/components/CharacterDetails.vue";
 import CharacterDetailsDefault from "@/components/CharacterDetailsDefault.vue";
 
-import type { Character } from "@/data/models";
 import { useCharacters } from "@/data/use";
 
 const characters = useCharacters();
 
-const selectedCharacter = ref<Character | null>(null);
+const selectedCharacterIndex = ref<number | null>(null);
+const selectedCharacter = computed(() => {
+  if (selectedCharacterIndex.value === null) {
+    return null;
+  }
+  return characters[selectedCharacterIndex.value];
+});
 
-function switchToCharacter(character: Character) {
-  selectedCharacter.value = character;
+function switchToCharacter(index: number) {
+  selectedCharacterIndex.value = index;
 }
 </script>
 
 <template>
   <section>
     <h2>Character Introduction</h2>
-    <Transition name="fade-in" mode="out-in">
+    <Transition
+      v-for="character in [...characters, null]"
+      :key="character?.id ?? 'null'"
+      v-show="character === selectedCharacter"
+      name="fade-in"
+      mode="out-in"
+    >
       <CharacterDetailsDefault
-        v-if="selectedCharacter === null"
+        v-if="character === null"
       />
       <CharacterDetails
         v-else
-        :selected-character="selectedCharacter"
-        :key="selectedCharacter.id"
+        :selected-character="character"
       />
     </Transition>
     <div class="character-nav">
       <button
-        v-for="character in characters"
+        v-for="(character, index) in characters"
+        :key="character.id"
         type="button"
         class="character-nav__button"
         :class="`character-nav__button--${character.id}`"
-        @click="switchToCharacter(character)"
+        @click="switchToCharacter(index)"
       >
         <img :src="character.assetSrc.thumb" :alt="character.englisgName" class="character-nav__button-thumb">
       </button>

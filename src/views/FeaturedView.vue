@@ -97,6 +97,7 @@ onDeactivated(() => {
     <div class="slideshow-pagination">
       <button
         v-for="(artwork, index) in featuredArtworks"
+        :key="artwork.id"
         type="button"
         class="slideshow-pagination__button round-button"
         :class="{ 'slideshow-pagination__button--active': slideshowArtworkIndex === index }"
