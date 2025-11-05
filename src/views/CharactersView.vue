@@ -61,7 +61,8 @@ function switchToCharacter(index: number) {
   gap: 0.25rem;
 }
 .character-nav__button {
-  max-width: 8rem;
+  width: 8rem;
+  aspect-ratio: 1;
   border: 0.25rem solid;
   border-radius: 50%;
   transition: translate 0.4s
