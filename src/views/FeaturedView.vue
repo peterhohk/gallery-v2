@@ -59,6 +59,24 @@ onDeactivated(() => {
   <section>
     <h2>Featured Artworks</h2>
     <div class="slideshow">
+      <Transition
+        v-for="artwork in featuredArtworks"
+        :key="artwork.id"
+        v-show="artwork === slideshowArtwork"
+        name="fade-in"
+        mode="out-in"
+      >
+        <figure class="slideshow__artwork-figure">
+          <img
+            :src="artwork.imageSrc.full"
+            :alt="artwork.title"
+            class="slideshow__artwork-image"
+          >
+          <figcaption class="slideshow__artwork-title">
+            {{ artwork.title }}
+          </figcaption>
+        </figure>
+      </Transition>
       <button
         type="button"
         aria-label="Previous featured artwork"
@@ -67,18 +85,6 @@ onDeactivated(() => {
       >
         <i class="bi bi-chevron-left"></i>
       </button>
-      <Transition name="fade-in" mode="out-in">
-        <figure class="slideshow__artwork-figure" :key="slideshowArtwork.id">
-          <img
-            :src="slideshowArtwork.imageSrc.full"
-            :alt="slideshowArtwork.title"
-            class="slideshow__artwork-image"
-          >
-          <figcaption class="slideshow__artwork-title">
-            {{ slideshowArtwork.title }}
-          </figcaption>
-        </figure>
-      </Transition>
       <button
         type="button"
         aria-label="Next featured artwork"
@@ -106,21 +112,29 @@ onDeactivated(() => {
 .slideshow {
   display: grid;
   grid-template-columns: auto minmax(auto, 40rem) auto;
+  grid-template-areas: "prev figure next";
   justify-content: center;
   align-items: center;
   gap: 0.75rem 1rem;
+}
+.slideshow__artwork-figure {
+  grid-area: figure;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
 }
 .slideshow__nav-button {
   font-size: 2rem;
   width: 1em;
   height: 1em;
 }
-.slideshow__artwork-figure {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 1;
+.slideshow__nav-button--prev {
+  grid-area: prev;
+}
+.slideshow__nav-button--next {
+  grid-area: next;
 }
 .slideshow__artwork-image {
   box-shadow: var(--bshadow);

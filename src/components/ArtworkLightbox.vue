@@ -160,16 +160,16 @@ onDeactivated(() => {
   z-index: 1;
   display: grid;
   grid-template-areas:
-    ".    .     close"
-    "prev image next"
-    "info .     orig";
+    ".    .      close"
+    "prev figure next"
+    "info .      orig";
   grid-template-columns: 3rem minmax(0, 1fr) 3rem;
   grid-template-rows: 3rem minmax(0, 1fr) 3rem;
   place-items: center;
   background-color: hsl(0 0% 0% / 0.8);
 }
 .lightbox__artwork-figure {
-  grid-area: image;
+  grid-area: figure;
   position: relative;
   display: flex;
   justify-content: center;
