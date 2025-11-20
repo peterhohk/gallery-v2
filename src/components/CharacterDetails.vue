@@ -227,7 +227,7 @@ const props = defineProps<{
 }
 .character-details__expression-item {
   position: relative;
-  max-width: 9rem;
+  max-width: 8rem;
   justify-self: center;
 }
 .character-details__expression-image {
