@@ -109,7 +109,8 @@
   color: var(--blue);
 }
 .footer {
-  margin: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
   border-top: 0.0625rem solid;
 }
 .footer__text {
