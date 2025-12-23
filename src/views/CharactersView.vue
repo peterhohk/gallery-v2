@@ -15,7 +15,7 @@ const selectedCharacter = computed(() => {
   return characters[selectedCharacterIndex.value];
 });
 
-function switchToCharacter(index: number) {
+function switchToCharacter(index: number): void {
   selectedCharacterIndex.value = index;
 }
 </script>

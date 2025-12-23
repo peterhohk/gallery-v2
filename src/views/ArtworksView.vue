@@ -27,7 +27,7 @@ const filteredArtworks = computed(() => {
 const isLightboxActive = ref<boolean>(false);
 const lightboxArtworkIndex = ref<number>(0);
 
-function shouldIncludeArtwork(artwork: Artwork) {
+function shouldIncludeArtwork(artwork: Artwork): boolean {
   if (filters.value.isFeaturedOnly && !artwork.isFeatured) {
     return false;
   }
@@ -54,27 +54,27 @@ function shouldIncludeArtwork(artwork: Artwork) {
   }
   return true;
 }
-function resetFilters() {
+function resetFilters(): void {
   filters.value.isFeaturedOnly = false;
   filters.value.includeCharacterIds = [];
   filters.value.excludeCharacterIds = [];
   filters.value.category = "all";
 }
-function openLightbox(index: number) {
+function openLightbox(index: number): void {
   isLightboxActive.value = true;
   lightboxArtworkIndex.value = index;
 }
-function closeLightbox() {
+function closeLightbox(): void {
   isLightboxActive.value = false;
 }
-function goToNextSlide() {
+function goToNextSlide(): void {
   if (lightboxArtworkIndex.value === filteredArtworks.value.length - 1) {
     lightboxArtworkIndex.value = 0;
   } else {
     lightboxArtworkIndex.value = lightboxArtworkIndex.value + 1;
   }
 }
-function goToPrevSlide() {
+function goToPrevSlide(): void {
   if (lightboxArtworkIndex.value === 0) {
     lightboxArtworkIndex.value = filteredArtworks.value.length - 1;
   } else {

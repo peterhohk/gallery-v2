@@ -8,7 +8,7 @@ const emit = defineEmits<{
   (e: "view"): void,
 }>();
 
-function openOriginal() {
+function openOriginal(): void {
   window.open(props.artwork.imageSrc.full);
 }
 </script>

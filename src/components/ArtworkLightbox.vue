@@ -22,19 +22,19 @@ const lightboxArtwork = computed(() => {
 });
 const isInfoExpanded = ref<boolean>(false);
 
-function toggleInfoExpanded() {
+function toggleInfoExpanded(): void {
   isInfoExpanded.value = !isInfoExpanded.value;
 }
-function openOriginal() {
+function openOriginal(): void {
   window.open(lightboxArtwork.value.imageSrc.full);
 }
-function handleClick(event: MouseEvent) {
+function handleClick(event: MouseEvent): void {
   const eventTarget = event.target as HTMLElement;
   if (eventTarget.matches(".lightbox, .lightbox__artwork-figure")) {
     emit("close");
   }
 }
-function handleKeydown(event: KeyboardEvent) {
+function handleKeydown(event: KeyboardEvent): void {
   switch (event.key) {
     case "ArrowLeft":
       emit("prev");

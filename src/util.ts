@@ -1,5 +1,5 @@
-export function howLongAgo(other: Date) {
-  function daysInMonth(year: number, month: number) {
+export function howLongAgo(other: Date): string {
+  function daysInMonth(year: number, month: number): number {
     return new Date(year, (month - 1) + 1, 0).getDate();
   }
 
