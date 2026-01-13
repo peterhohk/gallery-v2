@@ -65,7 +65,7 @@ function switchToCharacter(index: number): void {
   aspect-ratio: 1;
   border: 0.25rem solid;
   border-radius: 50%;
-  transition: translate 0.4s
+  transition: translate 0.4s;
 }
 .character-nav__button--ada {
   border-color: var(--img-ada3);
