@@ -94,11 +94,12 @@ onDeactivated(() => {
       <button
         type="button"
         class="lightbox__button round-button"
+        aria-label="Newer artwork"
         @click="emit('prev')"
       >
         <i class="bi bi-chevron-left"></i>
       </button>
-      <span class="lightbox__button-label lightbox__button-label--prev">
+      <span class="lightbox__button-label lightbox__button-label--prev" aria-hidden="true">
         Newer Artwork (Left)
       </span>
     </div>
@@ -106,11 +107,12 @@ onDeactivated(() => {
       <button
         type="button"
         class="lightbox__button round-button"
+        aria-label="Older artwork"
         @click="emit('next')"
       >
         <i class="bi bi-chevron-right"></i>
       </button>
-      <span class="lightbox__button-label lightbox__button-label--next">
+      <span class="lightbox__button-label lightbox__button-label--next" aria-hidden="true">
         Older Artwork (Right)
       </span>
     </div>
@@ -118,11 +120,12 @@ onDeactivated(() => {
       <button
         type="button"
         class="lightbox__button round-button"
+        aria-label="Artwork info"
         @click="toggleInfoExpanded"
       >
         <i class="bi bi-file-earmark-text"></i>
       </button>
-      <span class="lightbox__button-label lightbox__button-label--info">
+      <span class="lightbox__button-label lightbox__button-label--info" aria-hidden="true">
         Artwork Info (I)
       </span>
     </div>
@@ -130,11 +133,12 @@ onDeactivated(() => {
       <button
         type="button"
         class="lightbox__button round-button"
+        aria-label="Open original"
         @click="openOriginal"
       >
         <i class="bi bi-arrows-angle-expand"></i>
       </button>
-      <span class="lightbox__button-label lightbox__button-label--orig">
+      <span class="lightbox__button-label lightbox__button-label--orig" aria-hidden="true">
         Open Original (O)
       </span>
     </div>
@@ -142,11 +146,12 @@ onDeactivated(() => {
       <button
         type="button"
         class="lightbox__button round-button"
+        aria-label="Close lightbox"
         @click="emit('close')"
       >
         <i class="bi bi-x-lg"></i>
       </button>
-      <span class="lightbox__button-label lightbox__button-label--close">
+      <span class="lightbox__button-label lightbox__button-label--close" aria-hidden="true">
         Close Lightbox (Esc)
       </span>
     </div>
