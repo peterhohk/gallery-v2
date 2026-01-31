@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Artwork } from "@/data/models";
 
-const props = defineProps<{
+const { artwork } = defineProps<{
   artwork: Artwork,
 }>();
 const emit = defineEmits<{
@@ -9,7 +9,7 @@ const emit = defineEmits<{
 }>();
 
 function openOriginal(): void {
-  window.open(props.artwork.imageSrc.full);
+  window.open(artwork.imageSrc.full);
 }
 </script>
 

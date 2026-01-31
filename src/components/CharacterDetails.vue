@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Character } from "@/data/models";
 
-const props = defineProps<{
+const { selectedCharacter } = defineProps<{
   selectedCharacter: Character,
 }>();
 </script>
@@ -9,61 +9,61 @@ const props = defineProps<{
 <template>
   <article
     class="character-details"
-    :class="`character-details--${props.selectedCharacter.id}`"
+    :class="`character-details--${selectedCharacter.id}`"
   >
     <img
-      :src="props.selectedCharacter.assetSrc.portrait"
-      :alt="`${props.selectedCharacter.englisgName} portrait`"
+      :src="selectedCharacter.assetSrc.portrait"
+      :alt="`${selectedCharacter.englisgName} portrait`"
       class="character-details__portrait"
     >
     <div class="character-details__names">
-      <h3 class="character-details__name character-details__name--english">{{ props.selectedCharacter.englisgName }}</h3>
+      <h3 class="character-details__name character-details__name--english">{{ selectedCharacter.englisgName }}</h3>
       <p class="character-details__name character-details__name--japanese" lang="ja">
-        <ruby v-for="ruby in props.selectedCharacter.japaneseNameRuby">
+        <ruby v-for="ruby in selectedCharacter.japaneseNameRuby">
           {{ ruby.kanji }}<rp>(</rp><rt>{{ ruby.kana }}</rt><rp>)</rp>
         </ruby>
       </p>
-      <p class="character-details__name character-details__name--romaji">({{ props.selectedCharacter.japaneseNameRomaji }})</p>
+      <p class="character-details__name character-details__name--romaji">({{ selectedCharacter.japaneseNameRomaji }})</p>
     </div>
     <div class="character-details__bio">
       <h4 class="character-details__section-heading"><i class="bi bi-person"></i> Bio</h4>
       <ul class="character-details__bio-list">
         <li class="character-details__bio-item">
           <span class="character-details__bio-item-label">Age</span>
-          {{ props.selectedCharacter.age }}
+          {{ selectedCharacter.age }}
         </li>
         <li class="character-details__bio-item">
           <span class="character-details__bio-item-label">Height</span>
-          {{ props.selectedCharacter.height }} cm
+          {{ selectedCharacter.height }} cm
         </li>
         <li class="character-details__bio-item">
           <span class="character-details__bio-item-label">Weight</span>
-          {{ props.selectedCharacter.weight }} kg
+          {{ selectedCharacter.weight }} kg
         </li>
         <li class="character-details__bio-item">
           <span class="character-details__bio-item-label">Birthday</span>
-          {{ props.selectedCharacter.birthday }}
+          {{ selectedCharacter.birthday }}
         </li>
         <li class="character-details__bio-item">
           <span class="character-details__bio-item-label">Blood type</span>
-          {{ props.selectedCharacter.bloodType }}
+          {{ selectedCharacter.bloodType }}
         </li>
       </ul>
     </div>
     <div class="character-details__about">
       <h4 class="character-details__section-heading"><i class="bi bi-question-circle"></i> About</h4>
-      <p class="character-details__about-text">{{ props.selectedCharacter.about }}</p>
+      <p class="character-details__about-text">{{ selectedCharacter.about }}</p>
     </div>
     <div class="character-details__likes">
       <h4 class="character-details__section-heading"><i class="bi bi-heart"></i> Likes</h4>
       <ul>
-        <li v-for="like in props.selectedCharacter.likes">{{ like }}</li>
+        <li v-for="like in selectedCharacter.likes">{{ like }}</li>
       </ul>
     </div>
     <div class="character-details__dislikes">
       <h4 class="character-details__section-heading"><i class="bi bi-heartbreak"></i> Dislikes</h4>
       <ul>
-        <li v-for="dislike in props.selectedCharacter.dislikes">{{ dislike }}</li>
+        <li v-for="dislike in selectedCharacter.dislikes">{{ dislike }}</li>
       </ul>
     </div>
     <div class="character-details__expressions">
@@ -71,27 +71,27 @@ const props = defineProps<{
       <div class="character-details__expression-list">
         <div class="character-details__expression-item">
           <img
-            :src="props.selectedCharacter.assetSrc.expr1"
-            :alt="`${props.selectedCharacter.englisgName} expression 1`"
+            :src="selectedCharacter.assetSrc.expr1"
+            :alt="`${selectedCharacter.englisgName} expression 1`"
             class="character-details__expression-image"
           >
-          <span class="character-details__expression-quote">{{ props.selectedCharacter.quote1 }}</span>
+          <span class="character-details__expression-quote">{{ selectedCharacter.quote1 }}</span>
         </div>
         <div class="character-details__expression-item">
           <img
-            :src="props.selectedCharacter.assetSrc.expr2"
-            :alt="`${props.selectedCharacter.englisgName} expression 2`"
+            :src="selectedCharacter.assetSrc.expr2"
+            :alt="`${selectedCharacter.englisgName} expression 2`"
             class="character-details__expression-image"
           >
-          <span class="character-details__expression-quote">{{ props.selectedCharacter.quote2 }}</span>
+          <span class="character-details__expression-quote">{{ selectedCharacter.quote2 }}</span>
         </div>
         <div class="character-details__expression-item">
           <img
-            :src="props.selectedCharacter.assetSrc.expr3"
-            :alt="`${props.selectedCharacter.englisgName} expression 3`"
+            :src="selectedCharacter.assetSrc.expr3"
+            :alt="`${selectedCharacter.englisgName} expression 3`"
             class="character-details__expression-image"
           >
-          <span class="character-details__expression-quote">{{ props.selectedCharacter.quote3 }}</span>
+          <span class="character-details__expression-quote">{{ selectedCharacter.quote3 }}</span>
         </div>
       </div>
     </div>

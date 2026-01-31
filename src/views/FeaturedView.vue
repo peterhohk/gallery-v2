@@ -18,18 +18,12 @@ function goToSlide(index: number): void {
   slideshowTimeoutId.value = setTimeout(goToNextSlide, 10000);
 }
 function goToPrevSlide(): void {
-  if (slideshowArtworkIndex.value === 0) {
-    goToSlide(featuredArtworks.length - 1);
-  } else {
-    goToSlide(slideshowArtworkIndex.value - 1);
-  }
+  const prevArtworkIndex = slideshowArtworkIndex.value === 0 ? featuredArtworks.length - 1 : slideshowArtworkIndex.value - 1;
+  goToSlide(prevArtworkIndex);
 }
 function goToNextSlide(): void {
-  if (slideshowArtworkIndex.value === featuredArtworks.length - 1) {
-    goToSlide(0);
-  } else {
-    goToSlide(slideshowArtworkIndex.value + 1);
-  }
+  const prevArtworkIndex = slideshowArtworkIndex.value === featuredArtworks.length - 1 ? 0 : slideshowArtworkIndex.value + 1;
+  goToSlide(prevArtworkIndex);
 }
 function handleKeydown(event: KeyboardEvent): void {
   switch (event.key) {

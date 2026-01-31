@@ -5,7 +5,7 @@ import { Artwork } from "@/data/models";
 import { useArtworks } from "@/data/use";
 import { howLongAgo } from "@/util";
 
-const props = defineProps<{
+const { lightboxArtworkIndex, lightboxArtworks } = defineProps<{
   lightboxArtworkIndex: number,
   lightboxArtworks: Artwork[],
 }>();
@@ -18,7 +18,7 @@ const emit = defineEmits<{
 const artworks = useArtworks();
 
 const lightboxArtwork = computed(() => {
-  return props.lightboxArtworks[props.lightboxArtworkIndex];
+  return lightboxArtworks[lightboxArtworkIndex];
 });
 const isInfoExpanded = ref<boolean>(false);
 
