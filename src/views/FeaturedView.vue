@@ -17,18 +17,18 @@ function goToSlide(index: number): void {
   clearTimeout(slideshowTimeoutId.value);
   slideshowTimeoutId.value = setTimeout(goToNextSlide, 10000);
 }
-function goToNextSlide(): void {
-  if (slideshowArtworkIndex.value === featuredArtworks.length - 1) {
-    goToSlide(0);
-  } else {
-    goToSlide(slideshowArtworkIndex.value + 1);
-  }
-}
 function goToPrevSlide(): void {
   if (slideshowArtworkIndex.value === 0) {
     goToSlide(featuredArtworks.length - 1);
   } else {
     goToSlide(slideshowArtworkIndex.value - 1);
+  }
+}
+function goToNextSlide(): void {
+  if (slideshowArtworkIndex.value === featuredArtworks.length - 1) {
+    goToSlide(0);
+  } else {
+    goToSlide(slideshowArtworkIndex.value + 1);
   }
 }
 function handleKeydown(event: KeyboardEvent): void {

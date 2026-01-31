@@ -67,18 +67,18 @@ function openLightbox(index: number): void {
 function closeLightbox(): void {
   isLightboxActive.value = false;
 }
-function goToNextSlide(): void {
-  if (lightboxArtworkIndex.value === filteredArtworks.value.length - 1) {
-    lightboxArtworkIndex.value = 0;
-  } else {
-    lightboxArtworkIndex.value = lightboxArtworkIndex.value + 1;
-  }
-}
 function goToPrevSlide(): void {
   if (lightboxArtworkIndex.value === 0) {
     lightboxArtworkIndex.value = filteredArtworks.value.length - 1;
   } else {
     lightboxArtworkIndex.value = lightboxArtworkIndex.value - 1;
+  }
+}
+function goToNextSlide(): void {
+  if (lightboxArtworkIndex.value === filteredArtworks.value.length - 1) {
+    lightboxArtworkIndex.value = 0;
+  } else {
+    lightboxArtworkIndex.value = lightboxArtworkIndex.value + 1;
   }
 }
 
@@ -174,8 +174,8 @@ onDeactivated(() => {
             :lightbox-artwork-index="lightboxArtworkIndex"
             :lightbox-artworks="filteredArtworks"
             @close="closeLightbox"
-            @next="goToNextSlide"
             @prev="goToPrevSlide"
+            @next="goToNextSlide"
           />
         </KeepAlive>
       </Transition>

@@ -11,8 +11,8 @@ const props = defineProps<{
 }>();
 const emit = defineEmits<{
   (e: "close"): void,
-  (e: "next"): void,
   (e: "prev"): void,
+  (e: "next"): void,
 }>();
 
 const artworks = useArtworks();
