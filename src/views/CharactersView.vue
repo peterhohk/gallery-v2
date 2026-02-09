@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
 import CharacterDetails from "@/components/CharacterDetails.vue";
 import CharacterDetailsDefault from "@/components/CharacterDetailsDefault.vue";
-
 import { useCharacters } from "@/data/use";
+import { computed, ref } from "vue";
 
 const characters = useCharacters();
 

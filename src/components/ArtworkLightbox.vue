@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { computed, onActivated, onDeactivated, ref, watch } from "vue";
-
-import { Artwork } from "@/data/models";
+import type { Artwork } from "@/data/models";
 import { useArtworks } from "@/data/use";
 import { howLongAgo, preloadImage } from "@/util";
+import { computed, onActivated, onDeactivated, ref, watch } from "vue";
 
 const { lightboxArtworkIndex, lightboxArtworks } = defineProps<{
   lightboxArtworkIndex: number,

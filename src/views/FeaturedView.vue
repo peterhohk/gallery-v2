@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { computed, onActivated, onDeactivated, ref, watch } from "vue";
-
 import { useArtworks } from "@/data/use";
 import { preloadImage } from "@/util";
+import { computed, onActivated, onDeactivated, ref, watch } from "vue";
 
 const artworks = useArtworks();
 const featuredArtworks = artworks.filter((artwork) => artwork.isFeatured);
