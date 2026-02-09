@@ -8,7 +8,7 @@ export function useCharacters(): Character[] {
 }
 
 const artworks = _artworks.map((_artwork) => new Artwork(_artwork));
-artworks.reverse();
+artworks.sort((a, b) => b.date.localeCompare(a.date));
 export function useArtworks(): Artwork[] {
   return artworks;
 }
