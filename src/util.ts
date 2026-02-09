@@ -1,8 +1,8 @@
-export function howLongAgo(other: Date): string {
-  function daysInMonth(year: number, month: number): number {
-    return new Date(year, (month - 1) + 1, 0).getDate();
-  }
+function daysInMonth(year: number, month: number): number {
+  return new Date(year, (month - 1) + 1, 0).getDate();
+}
 
+export function howLongAgo(other: Date): string {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   other.setHours(0, 0, 0, 0);
@@ -37,4 +37,13 @@ export function howLongAgo(other: Date): string {
     return `${dayDiffString} ago`;
   }
   return `today`;
+}
+
+const preloadCache: string[] = [];
+
+export function preloadImage(src: string): void {
+  if (preloadCache.includes(src)) return;
+  preloadCache.push(src);
+  const img = new Image();
+  img.src = src;
 }

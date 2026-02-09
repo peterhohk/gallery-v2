@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, onActivated, onDeactivated, ref } from "vue";
+import { computed, onActivated, onDeactivated, ref, watch } from "vue";
 
 import { Artwork } from "@/data/models";
 import { useArtworks } from "@/data/use";
-import { howLongAgo } from "@/util";
+import { howLongAgo, preloadImage } from "@/util";
 
 const { lightboxArtworkIndex, lightboxArtworks } = defineProps<{
   lightboxArtworkIndex: number,
@@ -20,8 +20,25 @@ const artworks = useArtworks();
 const lightboxArtwork = computed(() => {
   return lightboxArtworks[lightboxArtworkIndex];
 });
+const prevArtworkIndex = computed(() => {
+  return lightboxArtworkIndex === 0 ? lightboxArtworks.length - 1 : lightboxArtworkIndex - 1;
+});
+const prevArtwork = computed(() => {
+  return lightboxArtworks[prevArtworkIndex.value];
+});
+const nextArtworkIndex = computed(() => {
+  return lightboxArtworkIndex === lightboxArtworks.length - 1 ? 0 : lightboxArtworkIndex + 1;
+});
+const nextArtwork = computed(() => {
+  return lightboxArtworks[nextArtworkIndex.value];
+});
 const isInfoExpanded = ref<boolean>(false);
 
+function preloadImages(): void {
+  preloadImage(lightboxArtwork.value.imageSrc.full);
+  preloadImage(prevArtwork.value.imageSrc.full);
+  preloadImage(nextArtwork.value.imageSrc.full);
+}
 function toggleInfoExpanded(): void {
   isInfoExpanded.value = !isInfoExpanded.value;
 }
@@ -56,7 +73,12 @@ function handleKeydown(event: KeyboardEvent): void {
   }
 }
 
+watch(() => lightboxArtworkIndex, () => {
+  preloadImages();
+});
+
 onActivated(() => {
+  preloadImages();
   document.addEventListener("keydown", handleKeydown);
 });
 onDeactivated(() => {

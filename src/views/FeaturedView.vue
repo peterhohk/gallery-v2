@@ -1,29 +1,45 @@
 <script setup lang="ts">
-import { computed, onActivated, onDeactivated, onMounted, ref } from "vue";
+import { computed, onActivated, onDeactivated, ref, watch } from "vue";
 
 import { useArtworks } from "@/data/use";
+import { preloadImage } from "@/util";
 
 const artworks = useArtworks();
 const featuredArtworks = artworks.filter((artwork) => artwork.isFeatured);
 
 const slideshowTimeoutId = ref<number>(0);
-const slideshowArtworkIndex = ref<number>(0);
+const slideshowArtworkIndex = ref<number>(Math.floor(Math.random() * featuredArtworks.length));
 const slideshowArtwork = computed(() => {
   return featuredArtworks[slideshowArtworkIndex.value];
 });
+const prevArtworkIndex = computed(() => {
+  return slideshowArtworkIndex.value === 0 ? featuredArtworks.length - 1 : slideshowArtworkIndex.value - 1;
+});
+const prevArtwork = computed(() => {
+  return featuredArtworks[prevArtworkIndex.value];
+});
+const nextArtworkIndex = computed(() => {
+  return slideshowArtworkIndex.value === featuredArtworks.length - 1 ? 0 : slideshowArtworkIndex.value + 1;
+});
+const nextArtwork = computed(() => {
+  return featuredArtworks[nextArtworkIndex.value];
+});
 
+function preloadImages(): void {
+  preloadImage(slideshowArtwork.value.imageSrc.full);
+  preloadImage(prevArtwork.value.imageSrc.full);
+  preloadImage(nextArtwork.value.imageSrc.full);
+}
 function goToSlide(index: number): void {
   slideshowArtworkIndex.value = index;
   clearTimeout(slideshowTimeoutId.value);
   slideshowTimeoutId.value = setTimeout(goToNextSlide, 10000);
 }
 function goToPrevSlide(): void {
-  const prevArtworkIndex = slideshowArtworkIndex.value === 0 ? featuredArtworks.length - 1 : slideshowArtworkIndex.value - 1;
-  goToSlide(prevArtworkIndex);
+  goToSlide(prevArtworkIndex.value);
 }
 function goToNextSlide(): void {
-  const prevArtworkIndex = slideshowArtworkIndex.value === featuredArtworks.length - 1 ? 0 : slideshowArtworkIndex.value + 1;
-  goToSlide(prevArtworkIndex);
+  goToSlide(nextArtworkIndex.value);
 }
 function handleKeydown(event: KeyboardEvent): void {
   switch (event.key) {
@@ -36,10 +52,12 @@ function handleKeydown(event: KeyboardEvent): void {
   }
 }
 
-onMounted(() => {
-  slideshowArtworkIndex.value = Math.floor(Math.random() * featuredArtworks.length);
+watch(slideshowArtworkIndex, () => {
+  preloadImages();
 });
+
 onActivated(() => {
+  preloadImages();
   slideshowTimeoutId.value = setTimeout(goToNextSlide, 10000);
   document.addEventListener("keydown", handleKeydown);
 });
