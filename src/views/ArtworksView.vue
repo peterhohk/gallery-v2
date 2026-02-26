@@ -113,29 +113,32 @@ onDeactivated(() => {
             <li><label><input type="checkbox" v-model="filters.excludeCharacterIds" value="davina"> Davina</label></li>
           </ul>
         </dd>
-        <dt class="artwork-filter__label">Category:</dt>
+        <dt class="artwork-filter__label" aria-hidden="true">Category:</dt>
         <dd>
-          <select class="artwork-filter__select" v-model="filters.category">
-            <option value="all">All</option>
-            <optgroup label="Outfit Designs">
-              <option value="outfit-all">Outfit Design - All</option>
-              <option value="outfit-vu">Outfit Design - Uniform</option>
-              <option value="outfit-scw-all">Outfit Design - Seasonal Casual Wear - All Seasons</option>
-              <option value="outfit-scw-spring">Outfit Design - Seasonal Casual Wear - Spring</option>
-              <option value="outfit-scw-summer">Outfit Design - Seasonal Casual Wear - Summer</option>
-              <option value="outfit-scw-autumn">Outfit Design - Seasonal Casual Wear - Autumn</option>
-              <option value="outfit-scw-winter">Outfit Design - Seasonal Casual Wear - Winter</option>
-              <option value="outfit-tcw">Outfit Design - Themed Casual Wear</option>
-              <option value="outfit-s">Outfit Design - Swimsuit</option>
-              <option value="outfit-u">Outfit Design - Underwear</option>
-              <option value="outfit-v">Outfit Design - Variety</option>
-            </optgroup>
-            <optgroup label="Other">
-              <option value="chibi">Chibi Batch</option>
-              <option value="pocky">Pocky Day</option>
-              <option value="random">Random</option>
-            </optgroup>
-          </select>
+          <label>
+            <span class="sr-only">Category</span>
+            <select class="artwork-filter__select" v-model="filters.category">
+              <option value="all">All</option>
+              <optgroup label="Outfit Designs">
+                <option value="outfit-all">Outfit Design - All</option>
+                <option value="outfit-vu">Outfit Design - Uniform</option>
+                <option value="outfit-scw-all">Outfit Design - Seasonal Casual Wear - All Seasons</option>
+                <option value="outfit-scw-spring">Outfit Design - Seasonal Casual Wear - Spring</option>
+                <option value="outfit-scw-summer">Outfit Design - Seasonal Casual Wear - Summer</option>
+                <option value="outfit-scw-autumn">Outfit Design - Seasonal Casual Wear - Autumn</option>
+                <option value="outfit-scw-winter">Outfit Design - Seasonal Casual Wear - Winter</option>
+                <option value="outfit-tcw">Outfit Design - Themed Casual Wear</option>
+                <option value="outfit-s">Outfit Design - Swimsuit</option>
+                <option value="outfit-u">Outfit Design - Underwear</option>
+                <option value="outfit-v">Outfit Design - Variety</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="chibi">Chibi Batch</option>
+                <option value="pocky">Pocky Day</option>
+                <option value="random">Random</option>
+              </optgroup>
+            </select>
+          </label>
         </dd>
       </dl>
       <hr>

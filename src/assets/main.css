@@ -27,10 +27,24 @@ ul, ol {
   padding-left: 1.5em;
 }
 input, select {
-  font-size: inherit;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
 }
 label, button, select, summary, [type="radio"], [type="checkbox"], [type="submit"], [type="reset"] {
   cursor: pointer;
+}
+.sr-only {
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
 }
 
 /* RESET ENDS */
@@ -106,9 +120,16 @@ hr {
   margin-block: 0.25em;
   border: none;
   border-top: 0.0625rem dotted;
+  color: inherit;
 }
 input[type="radio"], input[type="checkbox"] {
   accent-color: var(--dark-green);
+}
+select {
+  border-bottom: 0.0625rem solid;
+}
+optgroup, option {
+  color: initial;
 }
 .bi {
   font-size: 0.75em;
