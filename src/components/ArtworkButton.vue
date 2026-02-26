@@ -66,7 +66,7 @@ function openOriginal(): void {
   display: grid;
   place-content: center;
   gap: 0.25rem;
-  padding: 0 0.5rem;
+  padding: 0 0.25rem;
   border-radius: 0.4375rem;
   background-color: color-mix(in srgb, var(--dark-green) 70%, transparent);
   color: var(--xlight-green);
