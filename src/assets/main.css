@@ -110,6 +110,9 @@ p, ul, ol {
 a {
   color: var(--blue);
 }
+a:is(:hover, :focus-visible) {
+  color: var(--green);
+}
 ruby {
   ruby-align: center;
 }
