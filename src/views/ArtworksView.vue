@@ -121,16 +121,16 @@ onDeactivated(() => {
               <option value="all">All</option>
               <optgroup label="Outfit Designs">
                 <option value="outfit-all">Outfit Design - All</option>
-                <option value="outfit-vu">Outfit Design - Uniform</option>
-                <option value="outfit-scw-all">Outfit Design - Seasonal Casual Wear - All Seasons</option>
-                <option value="outfit-scw-spring">Outfit Design - Seasonal Casual Wear - Spring</option>
-                <option value="outfit-scw-summer">Outfit Design - Seasonal Casual Wear - Summer</option>
-                <option value="outfit-scw-autumn">Outfit Design - Seasonal Casual Wear - Autumn</option>
-                <option value="outfit-scw-winter">Outfit Design - Seasonal Casual Wear - Winter</option>
-                <option value="outfit-tcw">Outfit Design - Themed Casual Wear</option>
-                <option value="outfit-s">Outfit Design - Swimsuit</option>
-                <option value="outfit-u">Outfit Design - Underwear</option>
-                <option value="outfit-v">Outfit Design - Variety</option>
+                <option value="outfit-vu">Uniform</option>
+                <option value="outfit-scw-all">Seasonal Casual Wear - All</option>
+                <option value="outfit-scw-spring">Spring Casual Wear</option>
+                <option value="outfit-scw-summer">Summer Casual Wear</option>
+                <option value="outfit-scw-autumn">Autumn Casual Wear</option>
+                <option value="outfit-scw-winter">Winter Casual Wear</option>
+                <option value="outfit-tcw">Themed Casual Wear</option>
+                <option value="outfit-s">Swimsuit</option>
+                <option value="outfit-u">Underwear</option>
+                <option value="outfit-v">Variety</option>
               </optgroup>
               <optgroup label="Other">
                 <option value="chibi">Chibi Batch</option>
@@ -221,7 +221,6 @@ onDeactivated(() => {
 }
 .artwork-filter__select {
   display: block;
-  max-width: 12rem;
   height: 1.25rem;
 }
 .artwork-filter__reset-button {
