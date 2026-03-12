@@ -28,7 +28,7 @@ export function howLongAgo(other: Date): string {
   const monthDiffString = `${monthDiff} month${monthDiff === 1 ? "" : "s"}`;
   const dayDiffString = `${dayDiff} day${dayDiff === 1 ? "" : "s"}`;
   if (yearDiff > 0) {
-    return `${yearDiffString}${monthDiff > 0 ? ", " + monthDiffString : ""} ago`;
+    return `${yearDiffString}${monthDiff > 0 ? ", " + monthDiffString : ""}${dayDiff > 0 ? ", " + dayDiffString : ""} ago`;
   }
   if (monthDiff > 0) {
     return `${monthDiffString}${dayDiff > 0 ? ", " + dayDiffString : ""} ago`;
