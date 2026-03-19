@@ -207,6 +207,7 @@ onDeactivated(() => {
 }
 .artwork-filter__body {
   display: grid;
+  justify-items: start;
   gap: 0.125rem 1rem;
 }
 .artwork-filter__label {
