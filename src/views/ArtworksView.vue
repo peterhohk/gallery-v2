@@ -135,7 +135,7 @@ onDeactivated(() => {
               <optgroup label="Other">
                 <option value="chibi">Chibi Batch</option>
                 <option value="pocky">Pocky Day</option>
-                <option value="random">Random</option>
+                <option value="un">Uncategorised</option>
               </optgroup>
             </select>
           </label>

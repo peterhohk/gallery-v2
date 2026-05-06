@@ -1,7 +1,7 @@
 import { useArtworks } from "@/data/use";
 
 export type CharacterId = "ada" | "bella" | "celia" | "davina";
-export type ArtworkCategory = "outfit-vu" | "outfit-scw-spring" | "outfit-scw-summer" | "outfit-scw-autumn" | "outfit-scw-winter" | "outfit-tcw" | "outfit-s" | "outfit-u" | "outfit-v" | "chibi" | "pocky" | "random";
+export type ArtworkCategory = "outfit-vu" | "outfit-scw-spring" | "outfit-scw-summer" | "outfit-scw-autumn" | "outfit-scw-winter" | "outfit-tcw" | "outfit-s" | "outfit-u" | "outfit-v" | "chibi" | "pocky" | "un";
 
 interface CharacterPlain {
   id: string,
