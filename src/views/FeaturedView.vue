@@ -9,25 +9,31 @@ const featuredArtworks = artworks.filter((artwork) => artwork.isFeatured);
 const slideshowTimeoutId = ref<number>(0);
 const slideshowArtworkIndex = ref<number>(Math.floor(Math.random() * featuredArtworks.length));
 const slideshowArtwork = computed(() => {
-  return featuredArtworks[slideshowArtworkIndex.value];
+  return featuredArtworks[slideshowArtworkIndex.value] ?? null;
 });
 const prevArtworkIndex = computed(() => {
   return slideshowArtworkIndex.value === 0 ? featuredArtworks.length - 1 : slideshowArtworkIndex.value - 1;
 });
 const prevArtwork = computed(() => {
-  return featuredArtworks[prevArtworkIndex.value];
+  return featuredArtworks[prevArtworkIndex.value] ?? null;
 });
 const nextArtworkIndex = computed(() => {
   return slideshowArtworkIndex.value === featuredArtworks.length - 1 ? 0 : slideshowArtworkIndex.value + 1;
 });
 const nextArtwork = computed(() => {
-  return featuredArtworks[nextArtworkIndex.value];
+  return featuredArtworks[nextArtworkIndex.value] ?? null;
 });
 
 function preloadImages(): void {
-  preloadImage(slideshowArtwork.value.imageSrc.full);
-  preloadImage(prevArtwork.value.imageSrc.full);
-  preloadImage(nextArtwork.value.imageSrc.full);
+  if (slideshowArtwork.value !== null) {
+    preloadImage(slideshowArtwork.value.imageSrc.full);
+  }
+  if (prevArtwork.value !== null) {
+    preloadImage(prevArtwork.value.imageSrc.full);
+  }
+  if (nextArtwork.value !== null) {
+    preloadImage(nextArtwork.value.imageSrc.full);
+  }
 }
 function goToSlide(index: number): void {
   slideshowArtworkIndex.value = index;

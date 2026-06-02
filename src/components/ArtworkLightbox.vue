@@ -17,32 +17,40 @@ const emit = defineEmits<{
 const artworks = useArtworks();
 
 const lightboxArtwork = computed(() => {
-  return lightboxArtworks[lightboxArtworkIndex];
+  return lightboxArtworks[lightboxArtworkIndex] ?? null;
 });
 const prevArtworkIndex = computed(() => {
   return lightboxArtworkIndex === 0 ? lightboxArtworks.length - 1 : lightboxArtworkIndex - 1;
 });
 const prevArtwork = computed(() => {
-  return lightboxArtworks[prevArtworkIndex.value];
+  return lightboxArtworks[prevArtworkIndex.value] ?? null;
 });
 const nextArtworkIndex = computed(() => {
   return lightboxArtworkIndex === lightboxArtworks.length - 1 ? 0 : lightboxArtworkIndex + 1;
 });
 const nextArtwork = computed(() => {
-  return lightboxArtworks[nextArtworkIndex.value];
+  return lightboxArtworks[nextArtworkIndex.value] ?? null;
 });
 const isInfoExpanded = ref<boolean>(false);
 
 function preloadImages(): void {
-  preloadImage(lightboxArtwork.value.imageSrc.full);
-  preloadImage(prevArtwork.value.imageSrc.full);
-  preloadImage(nextArtwork.value.imageSrc.full);
+  if (lightboxArtwork.value !== null) {
+    preloadImage(lightboxArtwork.value.imageSrc.full);
+  }
+  if (prevArtwork.value !== null) {
+    preloadImage(prevArtwork.value.imageSrc.full);
+  }
+  if (nextArtwork.value !== null) {
+    preloadImage(nextArtwork.value.imageSrc.full);
+  }
 }
 function toggleInfoExpanded(): void {
   isInfoExpanded.value = !isInfoExpanded.value;
 }
 function openOriginal(): void {
-  window.open(lightboxArtwork.value.imageSrc.full);
+  if (lightboxArtwork.value !== null) {
+    window.open(lightboxArtwork.value.imageSrc.full);
+  }
 }
 function handleClick(event: MouseEvent): void {
   const eventTarget = event.target as HTMLElement;
