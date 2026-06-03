@@ -2,9 +2,10 @@
 import type { Artwork } from "@/data/models";
 import { useArtworks } from "@/data/use";
 import { howLongAgo, preloadImage } from "@/util";
-import { computed, onActivated, onDeactivated, ref, watch } from "vue";
+import { computed, onMounted, ref, useTemplateRef, watch } from "vue";
 
-const { lightboxArtworkIndex, lightboxArtworks } = defineProps<{
+const { isLightboxActive, lightboxArtworkIndex, lightboxArtworks } = defineProps<{
+  isLightboxActive: boolean,
   lightboxArtworkIndex: number,
   lightboxArtworks: Artwork[],
 }>();
@@ -15,6 +16,7 @@ const emit = defineEmits<{
 }>();
 
 const artworks = useArtworks();
+const lightboxDialogElement = useTemplateRef("lightbox");
 
 const lightboxArtwork = computed(() => {
   return lightboxArtworks[lightboxArtworkIndex] ?? null;
@@ -59,139 +61,154 @@ function handleClick(event: MouseEvent): void {
   }
 }
 function handleKeydown(event: KeyboardEvent): void {
-  switch (event.key) {
-    case "ArrowLeft":
-      emit("prev");
-      break;
-    case "ArrowRight":
-      emit("next");
-      break;
-    case "i":
-    case "I":
-      toggleInfoExpanded();
-      break;
-    case "o":
-    case "O":
-      openOriginal();
-      break;
-    case "Escape":
-      emit("close");
-      break;
+  if (isLightboxActive) {
+    switch (event.key) {
+      case "ArrowLeft":
+        emit("prev");
+        break;
+      case "ArrowRight":
+        emit("next");
+        break;
+      case "i":
+      case "I":
+        toggleInfoExpanded();
+        break;
+      case "o":
+      case "O":
+        openOriginal();
+        break;
+      case "Escape":
+        emit("close");
+        break;
+    }
   }
 }
 
+watch(() => isLightboxActive, (isLightboxActiveNew) => {
+  if (isLightboxActiveNew) {
+    lightboxDialogElement.value?.showModal();
+    preloadImages();
+  } else {
+    lightboxDialogElement.value?.close();
+  }
+});
 watch(() => lightboxArtworkIndex, () => {
   preloadImages();
 });
 
-onActivated(() => {
-  preloadImages();
+onMounted(() => {
   document.addEventListener("keydown", handleKeydown);
-});
-onDeactivated(() => {
-  document.removeEventListener("keydown", handleKeydown);
 });
 </script>
 
 <template>
-  <div class="lightbox" @mousedown="handleClick">
-    <figure
-      v-for="artwork in artworks"
-      :key="artwork.id"
-      v-show="artwork === lightboxArtwork"
-      class="lightbox__artwork-figure"
-    >
-      <img
-        :src="artwork.imageSrc.full"
-        :alt="artwork.title"
-        loading="lazy"
-        class="lightbox__artwork-image"
+  <dialog
+    ref="lightbox"
+    class="lightbox modal-fade-both"
+    @click="handleClick"
+    @close="emit('close')"
+  >
+    <div class="lightbox__content">
+      <figure
+        v-for="artwork in artworks"
+        :key="artwork.id"
+        v-show="artwork === lightboxArtwork"
+        class="lightbox__artwork-figure"
       >
-      <figcaption
-        class="lightbox__artwork-info"
-        :class="{ 'lightbox__artwork-info--expanded': isInfoExpanded }"
-      >
-        <h3 class="lightbox__artwork-title">{{ artwork.title }}</h3>
-        <p><i class="bi bi-hash"></i> {{ artwork.orderNumber }}/{{ artworks.length }}</p>
-        <p><i class="bi bi-calendar4-event"></i> {{ artwork.date }}</p>
-        <p><i class="bi bi-clock-history"></i> {{ howLongAgo(new Date(artwork.date)) }}</p>
-        <hr>
-        <p>{{ artwork.caption }}</p>
-      </figcaption>
-    </figure>
-    <div v-if="lightboxArtworks.length > 1" class="lightbox__button-wrapper lightbox__button-wrapper--prev">
-      <button
-        type="button"
-        class="lightbox__button round-button"
-        aria-label="Newer artwork"
-        @click="emit('prev')"
-      >
-        <i class="bi bi-chevron-left"></i>
-      </button>
-      <span class="lightbox__button-label lightbox__button-label--prev" aria-hidden="true">
-        Newer Artwork (Left)
-      </span>
+        <img
+          :src="artwork.imageSrc.full"
+          :alt="artwork.title"
+          loading="lazy"
+          class="lightbox__artwork-image"
+        >
+        <figcaption
+          class="lightbox__artwork-info"
+          :class="{ 'lightbox__artwork-info--expanded': isInfoExpanded }"
+        >
+          <h3 class="lightbox__artwork-title">{{ artwork.title }}</h3>
+          <p><i class="bi bi-hash"></i> {{ artwork.orderNumber }}/{{ artworks.length }}</p>
+          <p><i class="bi bi-calendar4-event"></i> {{ artwork.date }}</p>
+          <p><i class="bi bi-clock-history"></i> {{ howLongAgo(new Date(artwork.date)) }}</p>
+          <hr>
+          <p>{{ artwork.caption }}</p>
+        </figcaption>
+      </figure>
+      <div v-if="lightboxArtworks.length > 1" class="lightbox__button-wrapper lightbox__button-wrapper--prev">
+        <button
+          type="button"
+          class="lightbox__button round-button"
+          aria-label="Newer artwork"
+          @click="emit('prev')"
+        >
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <span class="lightbox__button-label lightbox__button-label--prev" aria-hidden="true">
+          Newer Artwork (Left)
+        </span>
+      </div>
+      <div v-if="lightboxArtworks.length > 1" class="lightbox__button-wrapper lightbox__button-wrapper--next">
+        <button
+          type="button"
+          class="lightbox__button round-button"
+          aria-label="Older artwork"
+          @click="emit('next')"
+        >
+          <i class="bi bi-chevron-right"></i>
+        </button>
+        <span class="lightbox__button-label lightbox__button-label--next" aria-hidden="true">
+          Older Artwork (Right)
+        </span>
+      </div>
+      <div class="lightbox__button-wrapper lightbox__button-wrapper--info">
+        <button
+          type="button"
+          class="lightbox__button round-button"
+          aria-label="Artwork info"
+          @click="toggleInfoExpanded"
+        >
+          <i class="bi bi-file-earmark-text"></i>
+        </button>
+        <span class="lightbox__button-label lightbox__button-label--info" aria-hidden="true">
+          Artwork Info (I)
+        </span>
+      </div>
+      <div class="lightbox__button-wrapper lightbox__button-wrapper--orig">
+        <button
+          type="button"
+          class="lightbox__button round-button"
+          aria-label="Open original"
+          @click="openOriginal"
+        >
+          <i class="bi bi-arrows-angle-expand"></i>
+        </button>
+        <span class="lightbox__button-label lightbox__button-label--orig" aria-hidden="true">
+          Open Original (O)
+        </span>
+      </div>
+      <div class="lightbox__button-wrapper lightbox__button-wrapper--close">
+        <button
+          type="button"
+          class="lightbox__button round-button"
+          aria-label="Close lightbox"
+          @click="emit('close')"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <span class="lightbox__button-label lightbox__button-label--close" aria-hidden="true">
+          Close Lightbox (Esc)
+        </span>
+      </div>
     </div>
-    <div v-if="lightboxArtworks.length > 1" class="lightbox__button-wrapper lightbox__button-wrapper--next">
-      <button
-        type="button"
-        class="lightbox__button round-button"
-        aria-label="Older artwork"
-        @click="emit('next')"
-      >
-        <i class="bi bi-chevron-right"></i>
-      </button>
-      <span class="lightbox__button-label lightbox__button-label--next" aria-hidden="true">
-        Older Artwork (Right)
-      </span>
-    </div>
-    <div class="lightbox__button-wrapper lightbox__button-wrapper--info">
-      <button
-        type="button"
-        class="lightbox__button round-button"
-        aria-label="Artwork info"
-        @click="toggleInfoExpanded"
-      >
-        <i class="bi bi-file-earmark-text"></i>
-      </button>
-      <span class="lightbox__button-label lightbox__button-label--info" aria-hidden="true">
-        Artwork Info (I)
-      </span>
-    </div>
-    <div class="lightbox__button-wrapper lightbox__button-wrapper--orig">
-      <button
-        type="button"
-        class="lightbox__button round-button"
-        aria-label="Open original"
-        @click="openOriginal"
-      >
-        <i class="bi bi-arrows-angle-expand"></i>
-      </button>
-      <span class="lightbox__button-label lightbox__button-label--orig" aria-hidden="true">
-        Open Original (O)
-      </span>
-    </div>
-    <div class="lightbox__button-wrapper lightbox__button-wrapper--close">
-      <button
-        type="button"
-        class="lightbox__button round-button"
-        aria-label="Close lightbox"
-        @click="emit('close')"
-      >
-        <i class="bi bi-x-lg"></i>
-      </button>
-      <span class="lightbox__button-label lightbox__button-label--close" aria-hidden="true">
-        Close Lightbox (Esc)
-      </span>
-    </div>
-  </div>
+  </dialog>
 </template>
 
 <style scoped>
 .lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0 0% 0% / 0.8);
+}
+.lightbox__content {
   display: grid;
   grid-template-areas:
     ".    .      close"
@@ -200,7 +217,8 @@ onDeactivated(() => {
   grid-template-columns: 3rem minmax(0, 1fr) 3rem;
   grid-template-rows: 3rem minmax(0, 1fr) 3rem;
   place-items: center;
-  background-color: hsl(0 0% 0% / 0.8);
+  width: 100%;
+  height: 100%;
 }
 .lightbox__artwork-figure {
   grid-area: figure;
@@ -233,7 +251,7 @@ onDeactivated(() => {
   display: block;
   width: 1rem;
   height: 1rem;
-  background-color: color-mix(in srgb, var(--xlight-green) 90%, transparent);
+  background-color: inherit;
   clip-path: polygon(50% 0%, 50% 50%, 100% 50%, 12.5% 87.5%);
 }
 .lightbox__artwork-info--expanded {

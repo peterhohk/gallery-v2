@@ -15,18 +15,10 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
-button {
-  border: none;
-  background: none;
-  font: inherit;
-  color: inherit;
-  letter-spacing: inherit;
-  word-spacing: inherit;
-}
 ul, ol {
   padding-left: 1.5em;
 }
-input, select {
+button, input, select {
   border: none;
   background: none;
   font: inherit;
@@ -36,6 +28,17 @@ input, select {
 }
 label, button, select, summary, [type="radio"], [type="checkbox"], [type="submit"], [type="reset"] {
   cursor: pointer;
+}
+dialog {
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  background: none;
+  border: none;
+  color: inherit;
+}
+dialog::backdrop {
+  background-color: transparent;
 }
 .sr-only {
   clip: rect(0 0 0 0) !important;
@@ -151,6 +154,19 @@ optgroup, option {
   display: block;
   font-size: 0.625em;
 }
+.modal-fade-both {
+  opacity: 0;
+  transition: display 0.4s, overlay 0.4s, opacity 0.4s;
+  transition-behavior: allow-discrete;
+}
+.modal-fade-both[open] {
+  opacity: 1;
+}
+@starting-style {
+  .modal-fade-both[open] {
+    opacity: 0;
+  }
+}
 
 /* GENERAL STYLE ENDS */
 
@@ -160,14 +176,6 @@ optgroup, option {
   transition: opacity 0.4s;
 }
 .fade-in-enter-from {
-  opacity: 0;
-}
-.fade-both-enter-active,
-.fade-both-leave-active {
-  transition: opacity 0.4s;
-}
-.fade-both-enter-from,
-.fade-both-leave-to {
   opacity: 0;
 }
 

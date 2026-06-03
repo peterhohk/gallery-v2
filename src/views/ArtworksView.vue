@@ -162,25 +162,18 @@ onDeactivated(() => {
         v-for="artwork in artworks"
         :key="artwork.id"
         v-show="shouldIncludeArtwork(artwork)"
-        :tabindex="isLightboxActive ? -1 : 0"
         :artwork="artwork"
         @view="openLightbox(filteredArtworks.indexOf(artwork))"
       />
     </div>
-    <Teleport to="body">
-      <Transition name="fade-both" mode="out-in">
-        <KeepAlive>
-          <ArtworkLightbox
-            v-if="isLightboxActive"
-            :lightbox-artwork-index="lightboxArtworkIndex"
-            :lightbox-artworks="filteredArtworks"
-            @close="closeLightbox"
-            @prev="goToPrevSlide"
-            @next="goToNextSlide"
-          />
-        </KeepAlive>
-      </Transition>
-    </Teleport>
+    <ArtworkLightbox
+      :is-lightbox-active="isLightboxActive"
+      :lightbox-artwork-index="lightboxArtworkIndex"
+      :lightbox-artworks="filteredArtworks"
+      @close="closeLightbox"
+      @prev="goToPrevSlide"
+      @next="goToNextSlide"
+    />
   </section>
 </template>
 
