@@ -56,7 +56,7 @@ function openOriginal(): void {
 }
 function handleClick(event: MouseEvent): void {
   const eventTarget = event.target as HTMLElement;
-  if (eventTarget.matches(".lightbox, .lightbox__artwork-figure")) {
+  if (eventTarget.matches(".lightbox__content, .lightbox__artwork-figure")) {
     emit("close");
   }
 }
