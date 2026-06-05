@@ -54,7 +54,7 @@ function openOriginal(): void {
     window.open(lightboxArtwork.value.imageSrc.full);
   }
 }
-function handleClick(event: MouseEvent): void {
+function handleMousedown(event: MouseEvent): void {
   const eventTarget = event.target as HTMLElement;
   if (eventTarget.matches(".lightbox__content, .lightbox__artwork-figure")) {
     emit("close");
@@ -105,7 +105,7 @@ onMounted(() => {
   <dialog
     ref="lightbox"
     class="lightbox modal-fade-both"
-    @click="handleClick"
+    @mousedown="handleMousedown"
     @close="emit('close')"
   >
     <div class="lightbox__content">
