@@ -305,7 +305,7 @@ onMounted(() => {
   height: fit-content;
   padding: 0.5em 1em;
   border-radius: 1000em;
-  background-color: var(--green-700);
+  background-color: var(--green-600);
   color: var(--green-200);
   box-shadow: var(--bshadow);
   pointer-events: none;

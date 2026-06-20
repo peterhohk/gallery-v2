@@ -97,7 +97,7 @@ html {
   scrollbar-gutter: stable;
 }
 body {
-  background-color: var(--blue-100);
+  background-color: var(--green-100);
   color: var(--green-700);
   font-family: "Comic Neue", "Helvetica", "Arial", sans-serif;
   line-height: 1.25;
@@ -157,7 +157,7 @@ optgroup, option {
   transition: background-color 0.4s, color 0.4s;
 }
 .round-button:is(:hover, :focus-visible) {
-  background-color: var(--green-700);
+  background-color: var(--green-600);
   color: var(--green-200);
 }
 .round-button > .bi:only-child {

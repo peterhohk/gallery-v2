@@ -226,8 +226,8 @@ onDeactivated(() => {
   transition: background-color 0.4s, color 0.4s;
 }
 .artwork-filter__reset-button:is(:hover, :focus-visible) {
-  background-color: var(--blue-300);
-  color: var(--blue-600);
+  background-color: var(--blue-600);
+  color: var(--blue-200);
 }
 .artwork-catalogue {
   display: grid;

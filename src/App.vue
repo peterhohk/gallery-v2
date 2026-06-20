@@ -62,7 +62,7 @@
   margin-left: 0.25em;
   border-radius: 1em;
   background-color: var(--green-700);
-  color: var(--blue-100);
+  color: var(--green-100);
   font-size: 0.5em;
 }
 .header__nav-toggle {
@@ -77,8 +77,8 @@
 }
 .header__nav-toggle:is(:hover, :focus-visible),
 .header__nav-wrapper:focus-within > .header__nav-toggle {
-  background-color: var(--green-700);
-  color: var(--green-200);
+  background-color: var(--blue-600);
+  color: var(--blue-200);
 }
 .header__nav-menu {
   position: absolute;
