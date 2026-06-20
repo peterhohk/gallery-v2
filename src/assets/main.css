@@ -55,17 +55,27 @@ dialog::backdrop {
 /* GENERAL STYLE STARTS */
 
 :root {
-  --off-white: hsl(210 90% 98%);
-  --light-blue: hsl(210 90% 82%);
-  --blue: hsl(225 90% 32%);
-  --dark-blue: hsl(240 90% 18%);
-  --xlight-green: hsl(105 60% 92%);
-  --light-green: hsl(105 60% 68%);
-  --green: hsl(120 60% 32%);
-  --dark-green: hsl(120 80% 18%);
+  --blue-100: hsl(210 90% 98%);
+  --blue-200: hsl(210 90% 92%);
+  --blue-300: hsl(210 90% 82%);
+  --blue-400: hsl(210 90% 68%);
+  --blue-500: hsl(210 90% 50%);
+  --blue-600: hsl(225 90% 32%);
+  --blue-700: hsl(225 90% 18%);
+  --blue-800: hsl(240 90% 8%);
+  --blue-900: hsl(240 90% 2%);
+  --green-100: hsl(105 60% 98%);
+  --green-200: hsl(105 60% 92%);
+  --green-300: hsl(105 60% 82%);
+  --green-400: hsl(105 60% 68%);
+  --green-500: hsl(105 60% 50%);
+  --green-600: hsl(120 60% 32%);
+  --green-700: hsl(120 60% 18%);
+  --green-800: hsl(120 60% 8%);
+  --green-900: hsl(120 60% 2%);
   --gold: hsl(45 100% 68%);
   --bshadow: 0 0.125rem 0.25rem 0.125rem hsl(0 0% 0% / 0.25);
-  --tshadow: 0 0.125rem 0.125rem var(--dark-green);
+  --tshadow: 0 0.125rem 0.125rem var(--green-700);
   --img-ada1: #fff9ef;
   --img-ada2: #ffe8c0;
   --img-ada3: #ffa000;
@@ -87,8 +97,8 @@ html {
   scrollbar-gutter: stable;
 }
 body {
-  background-color: var(--off-white);
-  color: var(--dark-green);
+  background-color: var(--blue-100);
+  color: var(--green-700);
   font-family: "Comic Neue", "Helvetica", "Arial", sans-serif;
   line-height: 1.25;
   word-spacing: -0.125ch;
@@ -111,10 +121,10 @@ p, ul, ol {
   margin-block: 0.25em;
 }
 a {
-  color: var(--blue);
+  color: var(--blue-600);
 }
 a:is(:hover, :focus-visible) {
-  color: var(--green);
+  color: var(--green-600);
 }
 ruby {
   ruby-align: center;
@@ -129,7 +139,7 @@ hr {
   color: inherit;
 }
 input[type="radio"], input[type="checkbox"] {
-  accent-color: var(--dark-green);
+  accent-color: var(--green-700);
 }
 select {
   border-bottom: 0.0625rem solid;
@@ -143,12 +153,12 @@ optgroup, option {
 .round-button {
   border-radius: 50%;
   line-height: 1;
-  background-color: var(--light-green);
+  background-color: var(--green-400);
   transition: background-color 0.4s, color 0.4s;
 }
 .round-button:is(:hover, :focus-visible) {
-  background-color: var(--dark-green);
-  color: var(--xlight-green);
+  background-color: var(--green-700);
+  color: var(--green-200);
 }
 .round-button > .bi:only-child {
   display: block;

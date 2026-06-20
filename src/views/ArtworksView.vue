@@ -186,7 +186,7 @@ onDeactivated(() => {
   padding: 1rem 0.75rem 0.5rem;
   border: 0.0625rem dashed;
   border-radius: 1rem;
-  background-color: var(--xlight-green);
+  background-color: var(--green-200);
 }
 .artwork-filter__heading {
   position: absolute;
@@ -194,8 +194,8 @@ onDeactivated(() => {
   left: 0.75rem;
   padding: 0.125em 0.5em;
   border-radius: 1em;
-  background-color: var(--dark-green);
-  color: var(--xlight-green);
+  background-color: var(--green-700);
+  color: var(--green-200);
   font-size: 1rem;
 }
 .artwork-filter__body {
@@ -226,8 +226,8 @@ onDeactivated(() => {
   transition: background-color 0.4s, color 0.4s;
 }
 .artwork-filter__reset-button:is(:hover, :focus-visible) {
-  background-color: var(--light-blue);
-  color: var(--blue);
+  background-color: var(--blue-300);
+  color: var(--blue-600);
 }
 .artwork-catalogue {
   display: grid;

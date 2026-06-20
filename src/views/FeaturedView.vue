@@ -166,8 +166,8 @@ onDeactivated(() => {
   height: fit-content;
   padding: 0.25em 1em;
   border-radius: 1em;
-  background-color: color-mix(in srgb, var(--light-blue) 90%, transparent);
-  color: var(--dark-blue);
+  background-color: color-mix(in srgb, var(--blue-300) 90%, transparent);
+  color: var(--blue-700);
   text-align: center;
   box-shadow: var(--bshadow);
 }
@@ -184,6 +184,6 @@ onDeactivated(() => {
   height: 1rem;
 }
 .slideshow-pagination__button--active {
-  background-color: var(--blue);
+  background-color: var(--blue-600);
 }
 </style>

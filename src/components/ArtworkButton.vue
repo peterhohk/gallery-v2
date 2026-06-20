@@ -68,8 +68,8 @@ function openOriginal(): void {
   gap: 0.25rem;
   padding: 0 0.25rem;
   border-radius: 0.4375rem;
-  background-color: color-mix(in srgb, var(--dark-green) 70%, transparent);
-  color: var(--xlight-green);
+  background-color: color-mix(in srgb, var(--green-700) 70%, transparent);
+  color: var(--green-200);
   font-weight: bold;
   text-shadow: var(--tshadow);
   visibility: hidden;
@@ -89,10 +89,10 @@ function openOriginal(): void {
   justify-content: center;
   gap: 0.25rem;
   text-shadow:
-    0 0.0625rem  var(--xlight-green),
-    0 -0.0625rem var(--xlight-green),
-    0.0625rem 0  var(--xlight-green),
-    -0.0625rem 0 var(--xlight-green);
+    0 0.0625rem  var(--green-200),
+    0 -0.0625rem var(--green-200),
+    0.0625rem 0  var(--green-200),
+    -0.0625rem 0 var(--green-200);
 }
 .artwork-button__character--ada {
   color: var(--img-ada3);

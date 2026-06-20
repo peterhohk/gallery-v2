@@ -236,7 +236,7 @@ onMounted(() => {
   width: min(32rem, calc(100% + 0.25rem));
   padding: 1rem 1rem 2rem 1rem;
   border-radius: 2rem 2rem 2rem 0;
-  background-color: color-mix(in srgb, var(--xlight-green) 90%, transparent);
+  background-color: color-mix(in srgb, var(--green-200) 90%, transparent);
   box-shadow: var(--bshadow);
   visibility: hidden;
   scale: 0;
@@ -262,8 +262,8 @@ onMounted(() => {
   width: fit-content;
   padding: 0.25em 0.5em;
   border-radius: 1em;
-  background-color: var(--dark-green);
-  color: var(--xlight-green);
+  background-color: var(--green-700);
+  color: var(--green-200);
   font-size: 1.25rem;
   font-weight: normal;
   line-height: 1;
@@ -305,8 +305,8 @@ onMounted(() => {
   height: fit-content;
   padding: 0.5em 1em;
   border-radius: 1000em;
-  background-color: var(--dark-green);
-  color: var(--xlight-green);
+  background-color: var(--green-700);
+  color: var(--green-200);
   box-shadow: var(--bshadow);
   pointer-events: none;
   visibility: hidden;

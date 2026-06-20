@@ -25,10 +25,10 @@
   background-color: var(--img1);
 }
 .character-details--default {
-  --img1: var(--xlight-green);
-  --img2: var(--light-green);
-  --img3: var(--green);
-  --img4: var(--dark-green);
+  --img1: var(--green-200);
+  --img2: var(--green-400);
+  --img3: var(--green-600);
+  --img4: var(--green-700);
 }
 .character-details__default-text {
   position: absolute;
