@@ -19,30 +19,30 @@ const artworks = useArtworks();
 const lightboxDialogElement = useTemplateRef("lightbox");
 
 const lightboxArtwork = computed(() => {
-  return lightboxArtworks[lightboxArtworkIndex] ?? null;
+  return lightboxArtworks[lightboxArtworkIndex];
 });
 const prevArtworkIndex = computed(() => {
   return lightboxArtworkIndex === 0 ? lightboxArtworks.length - 1 : lightboxArtworkIndex - 1;
 });
 const prevArtwork = computed(() => {
-  return lightboxArtworks[prevArtworkIndex.value] ?? null;
+  return lightboxArtworks[prevArtworkIndex.value];
 });
 const nextArtworkIndex = computed(() => {
   return lightboxArtworkIndex === lightboxArtworks.length - 1 ? 0 : lightboxArtworkIndex + 1;
 });
 const nextArtwork = computed(() => {
-  return lightboxArtworks[nextArtworkIndex.value] ?? null;
+  return lightboxArtworks[nextArtworkIndex.value];
 });
 const isInfoExpanded = ref<boolean>(false);
 
 function preloadImages(): void {
-  if (lightboxArtwork.value !== null) {
+  if (lightboxArtwork.value !== undefined) {
     preloadImage(lightboxArtwork.value.imageSrc.full);
   }
-  if (prevArtwork.value !== null) {
+  if (prevArtwork.value !== undefined) {
     preloadImage(prevArtwork.value.imageSrc.full);
   }
-  if (nextArtwork.value !== null) {
+  if (nextArtwork.value !== undefined) {
     preloadImage(nextArtwork.value.imageSrc.full);
   }
 }
@@ -50,7 +50,7 @@ function toggleInfoExpanded(): void {
   isInfoExpanded.value = !isInfoExpanded.value;
 }
 function openOriginal(): void {
-  if (lightboxArtwork.value !== null) {
+  if (lightboxArtwork.value !== undefined) {
     window.open(lightboxArtwork.value.imageSrc.full);
   }
 }
