@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Character } from "@/data/models";
+import type { Character } from "@/models/character";
 
 const { selectedCharacter } = defineProps<{
   selectedCharacter: Character,

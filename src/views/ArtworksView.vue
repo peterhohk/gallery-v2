@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import ArtworkButton from "@/components/ArtworkButton.vue";
 import ArtworkLightbox from "@/components/ArtworkLightbox.vue";
-import type { Artwork, ArtworkCategory, CharacterId } from "@/data/models";
-import { useArtworks } from "@/data/use";
+import { Artwork, type ArtworkCategory } from "@/models/artwork";
+import type { CharacterId } from "@/models/character";
 import { computed, onDeactivated, ref } from "vue";
 
 type FilterOptions = {
@@ -11,7 +11,7 @@ type FilterOptions = {
   excludeCharacterIds: CharacterId[],
   category: ArtworkCategory | "all" | "outfit-all" | "outfit-scw-all",
 };
-const artworks = useArtworks();
+const artworks = Artwork.list;
 
 const filters = ref<FilterOptions>({
   isFeaturedOnly: false,

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { Artwork } from "@/data/models";
-import { useArtworks } from "@/data/use";
+import { Artwork } from "@/models/artwork";
 import { howLongAgo, preloadImage } from "@/util";
 import { computed, onMounted, ref, useTemplateRef, watch } from "vue";
 
@@ -15,7 +14,7 @@ const emit = defineEmits<{
   (e: "next"): void,
 }>();
 
-const artworks = useArtworks();
+const artworks = Artwork.list;
 const lightboxDialogElement = useTemplateRef("lightbox");
 
 const lightboxArtwork = computed(() => {

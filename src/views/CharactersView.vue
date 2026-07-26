@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import CharacterDetails from "@/components/CharacterDetails.vue";
 import CharacterDetailsDefault from "@/components/CharacterDetailsDefault.vue";
-import { useCharacters } from "@/data/use";
+import { Character } from "@/models/character";
 import { computed, ref } from "vue";
 
-const characters = useCharacters();
+const characters = Character.list;
 
 const selectedCharacterIndex = ref<number | null>(null);
 const selectedCharacter = computed(() => {

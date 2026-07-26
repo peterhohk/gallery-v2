@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useArtworks } from "@/data/use";
+import { Artwork } from "@/models/artwork";
 import { preloadImage } from "@/util";
 import { computed, onActivated, onDeactivated, ref, watch } from "vue";
 
-const artworks = useArtworks();
+const artworks = Artwork.list;
 const featuredArtworks = artworks.filter((artwork) => artwork.isFeatured);
 
 const slideshowTimeoutId = ref<number>(0);
