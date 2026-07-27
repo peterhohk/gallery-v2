@@ -107,6 +107,7 @@ const { selectedCharacter } = defineProps<{
     "portrait names names   "
     "portrait bio   bio     "
     "portrait about about   "
+    "portrait .     .       "
     "likes    likes dislikes"
     "expr     expr  expr    ";
   grid-template-columns: 3fr 1fr 4fr;
