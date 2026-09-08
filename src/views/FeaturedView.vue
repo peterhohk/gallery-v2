@@ -166,7 +166,7 @@ onDeactivated(() => {
   height: fit-content;
   padding: 0.25em 1em;
   border-radius: 1em;
-  background-color: color-mix(in srgb, var(--green-300) 90%, transparent);
+  background-color: alpha(from var(--green-300) / 90%);
   text-align: center;
   box-shadow: var(--bshadow);
 }

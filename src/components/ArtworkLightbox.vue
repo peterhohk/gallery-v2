@@ -235,7 +235,7 @@ onMounted(() => {
   width: min(32rem, calc(100% + 0.25rem));
   padding: 1rem 1rem 2rem 1rem;
   border-radius: 2rem 2rem 2rem 0;
-  background-color: color-mix(in srgb, var(--green-200) 90%, transparent);
+  background-color: alpha(from var(--green-200) / 90%);
   box-shadow: var(--bshadow);
   visibility: hidden;
   scale: 0;

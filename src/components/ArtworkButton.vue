@@ -68,7 +68,7 @@ function openOriginal(): void {
   gap: 0.25rem;
   padding: 0 0.25rem;
   border-radius: 0.4375rem;
-  background-color: color-mix(in srgb, var(--green-700) 70%, transparent);
+  background-color: alpha(from var(--green-700) / 70%);
   color: var(--green-200);
   font-weight: bold;
   text-shadow: var(--tshadow);
