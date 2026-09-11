@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__title-wrapper">
       <img src="@/assets/img/peterhohk.png" alt="" class="header__logo">
-      <h1 class="header__title-text">J-ColourS Gallery<sup class="header__title-badge">v2</sup></h1>
+      <h1 class="header__title-text">J-ColourS Gallery<span class="header__title-badge">v2</span></h1>
     </div>
     <div class="header__nav-wrapper">
       <button type="button" class="header__nav-toggle" aria-label="Toggle navigation menu">
@@ -64,6 +64,7 @@
   background-color: var(--green-700);
   color: var(--green-100);
   font-size: 0.5em;
+  vertical-align: super;
 }
 .header__nav-toggle {
   display: grid;
