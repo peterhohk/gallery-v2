@@ -123,7 +123,7 @@ p, ul, ol {
 a {
   color: var(--blue-600);
 }
-a:is(:hover, :focus-visible) {
+a:where(:hover, :focus-visible) {
   color: var(--green-600);
 }
 ruby {
