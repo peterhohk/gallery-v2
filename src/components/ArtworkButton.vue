@@ -28,7 +28,7 @@ function openOriginal(): void {
     >
     <div class="artwork-button__overlay">
       <span class="artwork-button__title">{{ artwork.title }}</span>
-      <span class="artwork-button__meta">#{{ artwork.orderNumber }}<i class="bi bi-dot"></i>{{ artwork.date }}</span>
+      <span class="artwork-button__meta">#{{ artwork.orderNumber }} · {{ artwork.date }}</span>
       <div class="artwork-button__character-list">
         <i v-if="artwork.characters.includes('ada')" class="artwork-button__character artwork-button__character--ada bi bi-circle-fill"></i>
         <i v-if="artwork.characters.includes('bella')" class="artwork-button__character artwork-button__character--bella bi bi-hexagon-fill"></i>
