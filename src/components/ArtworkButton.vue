@@ -93,6 +93,7 @@ function openOriginal(): void {
 .artwork-button__character-item > * {
   stroke-width: 0.125rem;
   stroke: var(--green-200);
+  stroke-miterlimit: 2;
 }
 .artwork-button__feature-wrapper {
   position: absolute;
