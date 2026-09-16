@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Artwork } from "@/models/artwork";
 import { preloadImage } from "@/util";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/vue";
 import { computed, onActivated, onDeactivated, ref, watch } from "vue";
 
 const artworks = Artwork.list;
@@ -101,7 +102,7 @@ onDeactivated(() => {
         class="slideshow__nav-button slideshow__nav-button--prev round-button"
         @click="goToPrevSlide"
       >
-        <i class="bi bi-chevron-left"></i>
+        <RiArrowLeftSLine />
       </button>
       <button
         type="button"
@@ -109,7 +110,7 @@ onDeactivated(() => {
         class="slideshow__nav-button slideshow__nav-button--next round-button"
         @click="goToNextSlide"
       >
-        <i class="bi bi-chevron-right"></i>
+        <RiArrowRightSLine />
       </button>
     </div>
     <div class="slideshow-pagination">
@@ -146,8 +147,6 @@ onDeactivated(() => {
 }
 .slideshow__nav-button {
   font-size: 2rem;
-  width: 1em;
-  height: 1em;
 }
 .slideshow__nav-button--prev {
   grid-area: prev;
@@ -177,10 +176,6 @@ onDeactivated(() => {
   gap: 0.25rem;
   margin-top: 0.75rem;
   margin-bottom: 0.5rem;
-}
-.slideshow-pagination__button {
-  width: 1rem;
-  height: 1rem;
 }
 .slideshow-pagination__button--active {
   background-color: var(--green-800);

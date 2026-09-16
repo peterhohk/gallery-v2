@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Character } from "@/models/character";
+import { RiDislikeLine, RiEmotionHappyLine, RiHeartLine, RiQuestionLine, RiUserLine } from "@remixicon/vue";
 
 const { selectedCharacter } = defineProps<{
   selectedCharacter: Character,
@@ -26,7 +27,7 @@ const { selectedCharacter } = defineProps<{
       <p class="character-details__name character-details__name--romaji">({{ selectedCharacter.japaneseNameRomaji }})</p>
     </div>
     <div class="character-details__bio">
-      <h4 class="character-details__section-heading"><i class="bi bi-person"></i> Bio</h4>
+      <h4 class="character-details__section-heading"><RiUserLine /> Bio</h4>
       <ul class="character-details__bio-list">
         <li class="character-details__bio-item">
           <span class="character-details__bio-item-label">Age</span>
@@ -51,23 +52,23 @@ const { selectedCharacter } = defineProps<{
       </ul>
     </div>
     <div class="character-details__about">
-      <h4 class="character-details__section-heading"><i class="bi bi-question-circle"></i> About</h4>
+      <h4 class="character-details__section-heading"><RiQuestionLine /> About</h4>
       <p class="character-details__about-text">{{ selectedCharacter.about }}</p>
     </div>
     <div class="character-details__likes">
-      <h4 class="character-details__section-heading"><i class="bi bi-heart"></i> Likes</h4>
+      <h4 class="character-details__section-heading"><RiHeartLine /> Likes</h4>
       <ul>
         <li v-for="like in selectedCharacter.likes">{{ like }}</li>
       </ul>
     </div>
     <div class="character-details__dislikes">
-      <h4 class="character-details__section-heading"><i class="bi bi-heartbreak"></i> Dislikes</h4>
+      <h4 class="character-details__section-heading"><RiDislikeLine /> Dislikes</h4>
       <ul>
         <li v-for="dislike in selectedCharacter.dislikes">{{ dislike }}</li>
       </ul>
     </div>
     <div class="character-details__expressions">
-      <h4 class="character-details__section-heading"><i class="bi bi-emoji-smile"></i> Expressions</h4>
+      <h4 class="character-details__section-heading"><RiEmotionHappyLine /> Expressions</h4>
       <div class="character-details__expression-list">
         <div class="character-details__expression-item">
           <img

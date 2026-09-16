@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Artwork } from "@/models/artwork";
+import { RiCircleFill, RiHexagonFill, RiPokerDiamondsFill, RiStarFill } from "@remixicon/vue";
 
 const { artwork } = defineProps<{
   artwork: Artwork,
@@ -30,10 +31,10 @@ function openOriginal(): void {
       <span class="artwork-button__title">{{ artwork.title }}</span>
       <span class="artwork-button__meta">#{{ artwork.orderNumber }} · {{ artwork.date }}</span>
       <div class="artwork-button__character-list">
-        <i v-if="artwork.characters.includes('ada')" class="artwork-button__character artwork-button__character--ada bi bi-circle-fill"></i>
-        <i v-if="artwork.characters.includes('bella')" class="artwork-button__character artwork-button__character--bella bi bi-hexagon-fill"></i>
-        <i v-if="artwork.characters.includes('celia')" class="artwork-button__character artwork-button__character--celia bi bi-star-fill"></i>
-        <i v-if="artwork.characters.includes('davina')" class="artwork-button__character artwork-button__character--davina bi bi-suit-diamond-fill"></i>
+        <RiCircleFill v-if="artwork.characters.includes('ada')" color="var(--img-ada3)" class-name="artwork-button__character-item" />
+        <RiHexagonFill v-if="artwork.characters.includes('bella')" color="var(--img-bella3)" class-name="artwork-button__character-item" style="rotate: 90deg;" />
+        <RiStarFill v-if="artwork.characters.includes('celia')" color="var(--img-celia3)" class-name="artwork-button__character-item" />
+        <RiPokerDiamondsFill v-if="artwork.characters.includes('davina')" color="var(--img-davina3)" class-name="artwork-button__character-item" />
       </div>
     </div>
     <div v-if="artwork.isFeatured" class="artwork-button__feature-wrapper">
@@ -87,24 +88,11 @@ function openOriginal(): void {
   inset: auto 0 0.25rem 0;
   display: flex;
   justify-content: center;
-  gap: 0.25rem;
-  text-shadow:
-    0 0.0625rem  var(--green-200),
-    0 -0.0625rem var(--green-200),
-    0.0625rem 0  var(--green-200),
-    -0.0625rem 0 var(--green-200);
+  gap: 0.125rem;
 }
-.artwork-button__character--ada {
-  color: var(--img-ada3);
-}
-.artwork-button__character--bella {
-  color: var(--img-bella3);
-}
-.artwork-button__character--celia {
-  color: var(--img-celia3);
-}
-.artwork-button__character--davina {
-  color: var(--img-davina3);
+.artwork-button__character-item > * {
+  stroke-width: 0.125rem;
+  stroke: var(--green-200);
 }
 .artwork-button__feature-wrapper {
   position: absolute;

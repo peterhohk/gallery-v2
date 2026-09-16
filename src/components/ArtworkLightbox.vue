@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Artwork } from "@/models/artwork";
 import { howLongAgo, preloadImage } from "@/util";
+import { RiArrowLeftSLine, RiArrowRightSLine, RiCalendarLine, RiCloseLine, RiExpandDiagonalLine, RiFileInfoLine, RiHashtag, RiHistoryLine } from "@remixicon/vue";
 import { computed, onMounted, ref, useTemplateRef, watch } from "vue";
 
 const { isLightboxActive, lightboxArtworkIndex, lightboxArtworks } = defineProps<{
@@ -125,9 +126,9 @@ onMounted(() => {
           :class="{ 'lightbox__artwork-info--expanded': isInfoExpanded }"
         >
           <h3 class="lightbox__artwork-title">{{ artwork.title }}</h3>
-          <p><i class="bi bi-hash"></i> {{ artwork.orderNumber }}/{{ artworks.length }}</p>
-          <p><i class="bi bi-calendar4-event"></i> {{ artwork.date }}</p>
-          <p><i class="bi bi-clock-history"></i> {{ howLongAgo(new Date(artwork.date)) }}</p>
+          <p><RiHashtag /> {{ artwork.orderNumber }}/{{ artworks.length }}</p>
+          <p><RiCalendarLine /> {{ artwork.date }}</p>
+          <p><RiHistoryLine /> {{ howLongAgo(new Date(artwork.date)) }}</p>
           <hr>
           <p>{{ artwork.caption }}</p>
         </figcaption>
@@ -139,7 +140,7 @@ onMounted(() => {
           aria-label="Newer artwork"
           @click="emit('prev')"
         >
-          <i class="bi bi-chevron-left"></i>
+          <RiArrowLeftSLine />
         </button>
         <span class="lightbox__button-label lightbox__button-label--prev" aria-hidden="true">
           Newer Artwork (Left)
@@ -152,7 +153,7 @@ onMounted(() => {
           aria-label="Older artwork"
           @click="emit('next')"
         >
-          <i class="bi bi-chevron-right"></i>
+          <RiArrowRightSLine />
         </button>
         <span class="lightbox__button-label lightbox__button-label--next" aria-hidden="true">
           Older Artwork (Right)
@@ -165,7 +166,7 @@ onMounted(() => {
           aria-label="Artwork info"
           @click="toggleInfoExpanded"
         >
-          <i class="bi bi-file-earmark-text"></i>
+          <RiFileInfoLine />
         </button>
         <span class="lightbox__button-label lightbox__button-label--info" aria-hidden="true">
           Artwork Info (I)
@@ -178,7 +179,7 @@ onMounted(() => {
           aria-label="Open original"
           @click="openOriginal"
         >
-          <i class="bi bi-arrows-angle-expand"></i>
+          <RiExpandDiagonalLine />
         </button>
         <span class="lightbox__button-label lightbox__button-label--orig" aria-hidden="true">
           Open Original (O)
@@ -191,7 +192,7 @@ onMounted(() => {
           aria-label="Close lightbox"
           @click="emit('close')"
         >
-          <i class="bi bi-x-lg"></i>
+          <RiCloseLine />
         </button>
         <span class="lightbox__button-label lightbox__button-label--close" aria-hidden="true">
           Close Lightbox (Esc)
@@ -287,8 +288,6 @@ onMounted(() => {
 }
 .lightbox__button {
   font-size: 2.5rem;
-  width: 1em;
-  height: 1em;
   opacity: 0.3;
   box-shadow: var(--bshadow);
   transition: background-color 0.4s, color 0.4s, opacity 0.4s;

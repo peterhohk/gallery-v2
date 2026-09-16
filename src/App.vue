@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { RiMenuLine } from '@remixicon/vue';
+</script>
+
 <template>
   <header class="header">
     <div class="header__title-wrapper">
@@ -6,7 +10,7 @@
     </div>
     <div class="header__nav-wrapper">
       <button type="button" class="header__nav-toggle" aria-label="Toggle navigation menu">
-        <i class="bi bi-list"></i>
+        <RiMenuLine />
       </button>
       <nav class="header__nav-menu">
         <RouterLink to="/featured" class="header__nav-link">featured</RouterLink>
@@ -72,7 +76,7 @@
   width: 2rem;
   height: 2rem;
   border-radius: 0.5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1;
   transition: background-color 0.4s, color 0.4s;
 }

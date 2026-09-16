@@ -1,7 +1,9 @@
 @charset "utf-8";
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Klee+One&display=swap");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* RESET STARTS */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -147,10 +149,16 @@ select {
 optgroup, option {
   color: initial;
 }
-.bi {
-  font-size: 0.75em;
+.remixicon {
+  width: 1em;
+  height: 1em;
+  vertical-align: top;
 }
 .round-button {
+  display: grid;
+  place-items: center;
+  width: 1em;
+  height: 1em;
   border-radius: 50%;
   line-height: 1;
   background-color: var(--green-400);
@@ -160,9 +168,9 @@ optgroup, option {
   background-color: var(--green-600);
   color: var(--green-200);
 }
-.round-button > .bi:only-child {
-  display: block;
-  font-size: 0.625em;
+.round-button > .remixicon:only-child {
+  width: 0.75em;
+  height: 0.75em;
 }
 .modal-fade-both {
   opacity: 0;

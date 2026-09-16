@@ -3,6 +3,7 @@ import ArtworkButton from "@/components/ArtworkButton.vue";
 import ArtworkLightbox from "@/components/ArtworkLightbox.vue";
 import { Artwork, type ArtworkCategory } from "@/models/artwork";
 import type { CharacterId } from "@/models/character";
+import { RiFilterLine } from "@remixicon/vue";
 import { computed, onDeactivated, ref } from "vue";
 
 type FilterOptions = {
@@ -89,7 +90,7 @@ onDeactivated(() => {
   <section>
     <h2>Artwork Catalogue</h2>
     <form class="artwork-filter">
-      <h3 class="artwork-filter__heading"><i class="bi bi-funnel"></i> Filters</h3>
+      <h3 class="artwork-filter__heading"><RiFilterLine /> Filters</h3>
       <dl class="artwork-filter__body">
         <dt class="artwork-filter__label">Featured:</dt>
         <dd>
