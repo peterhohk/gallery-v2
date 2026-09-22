@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RiMenuLine } from '@remixicon/vue';
+import { RiMenuLine } from "@remixicon/vue";
 </script>
 
 <template>
