@@ -7,7 +7,7 @@ import { computed, ref } from "vue";
 const characters = Character.list;
 
 const selectedCharacterIndex = ref<number | null>(null);
-const selectedCharacter = computed(() => {
+const selectedCharacter = computed<Character | null | undefined>(() => {
   if (selectedCharacterIndex.value === null) {
     return null;
   }

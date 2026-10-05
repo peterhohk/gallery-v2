@@ -9,19 +9,19 @@ const featuredArtworks = artworks.filter((artwork) => artwork.isFeatured);
 
 const slideshowTimeoutId = ref<number>(0);
 const slideshowArtworkIndex = ref<number>(Math.floor(Math.random() * featuredArtworks.length));
-const slideshowArtwork = computed(() => {
+const slideshowArtwork = computed<Artwork | undefined>(() => {
   return featuredArtworks[slideshowArtworkIndex.value];
 });
-const prevArtworkIndex = computed(() => {
+const prevArtworkIndex = computed<number>(() => {
   return slideshowArtworkIndex.value === 0 ? featuredArtworks.length - 1 : slideshowArtworkIndex.value - 1;
 });
-const prevArtwork = computed(() => {
+const prevArtwork = computed<Artwork | undefined>(() => {
   return featuredArtworks[prevArtworkIndex.value];
 });
-const nextArtworkIndex = computed(() => {
+const nextArtworkIndex = computed<number>(() => {
   return slideshowArtworkIndex.value === featuredArtworks.length - 1 ? 0 : slideshowArtworkIndex.value + 1;
 });
-const nextArtwork = computed(() => {
+const nextArtwork = computed<Artwork | undefined>(() => {
   return featuredArtworks[nextArtworkIndex.value];
 });
 

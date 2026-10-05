@@ -18,19 +18,19 @@ const emit = defineEmits<{
 const artworks = Artwork.list;
 const lightboxDialogElement = useTemplateRef("lightbox");
 
-const lightboxArtwork = computed(() => {
+const lightboxArtwork = computed<Artwork | undefined>(() => {
   return lightboxArtworks[lightboxArtworkIndex];
 });
-const prevArtworkIndex = computed(() => {
+const prevArtworkIndex = computed<number>(() => {
   return lightboxArtworkIndex === 0 ? lightboxArtworks.length - 1 : lightboxArtworkIndex - 1;
 });
-const prevArtwork = computed(() => {
+const prevArtwork = computed<Artwork | undefined>(() => {
   return lightboxArtworks[prevArtworkIndex.value];
 });
-const nextArtworkIndex = computed(() => {
+const nextArtworkIndex = computed<number>(() => {
   return lightboxArtworkIndex === lightboxArtworks.length - 1 ? 0 : lightboxArtworkIndex + 1;
 });
-const nextArtwork = computed(() => {
+const nextArtwork = computed<Artwork | undefined>(() => {
   return lightboxArtworks[nextArtworkIndex.value];
 });
 const isInfoExpanded = ref<boolean>(false);

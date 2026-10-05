@@ -20,7 +20,7 @@ const filters = ref<FilterOptions>({
   excludeCharacterIds: [],
   category: "all",
 });
-const filteredArtworks = computed(() => {
+const filteredArtworks = computed<Artwork[]>(() => {
   return artworks.filter((artwork) => shouldIncludeArtwork(artwork));
 });
 const isLightboxActive = ref<boolean>(false);
