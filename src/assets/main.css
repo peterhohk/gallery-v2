@@ -76,7 +76,7 @@ dialog::backdrop {
   --green-800: hsl(120 60% 8%);
   --green-900: hsl(120 60% 2%);
   --gold: hsl(45 100% 68%);
-  --bshadow: 0 0.125rem 0.25rem 0.125rem hsl(0 0% 0% / 0.25);
+  --bshadow: 0 0.125rem 0.25rem 0.125rem hsl(0 0% 0% / 25%);
   --tshadow: 0 0.125rem 0.125rem var(--green-700);
   --img-ada1: #fff9ef;
   --img-ada2: #ffe8c0;

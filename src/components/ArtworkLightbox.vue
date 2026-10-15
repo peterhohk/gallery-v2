@@ -206,7 +206,7 @@ onMounted(() => {
 .lightbox {
   width: 100%;
   height: 100%;
-  background-color: hsl(0 0% 0% / 0.8);
+  background-color: hsl(0 0% 0% / 80%);
 }
 .lightbox__content {
   display: grid;
