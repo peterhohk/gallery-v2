@@ -32,7 +32,7 @@ function openOriginal(): void {
       <span class="artwork-button__meta">#{{ artwork.orderNumber }} · {{ artwork.date }}</span>
       <div class="artwork-button__character-list">
         <RiCircleFill v-if="artwork.characters.includes('ada')" color="var(--img-ada3)" class-name="artwork-button__character-item" />
-        <RiHexagonFill v-if="artwork.characters.includes('bella')" color="var(--img-bella3)" class-name="artwork-button__character-item" style="rotate: 90deg;" />
+        <RiHexagonFill v-if="artwork.characters.includes('bella')" color="var(--img-bella3)" class-name="artwork-button__character-item" />
         <RiStarFill v-if="artwork.characters.includes('celia')" color="var(--img-celia3)" class-name="artwork-button__character-item" />
         <RiPokerDiamondsFill v-if="artwork.characters.includes('davina')" color="var(--img-davina3)" class-name="artwork-button__character-item" />
       </div>
