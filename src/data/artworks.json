@@ -138,5 +138,6 @@
   {"id": "20251217", "date": "2025-12-17", "title": "Winter in Dull Purple Tones", "caption": "Finally decided to design some proper winter clothes for my girls.", "characters": ["celia", "davina"], "category": "outfit-scw-winter", "isFeatured": false},
   {"id": "20260114", "date": "2026-01-14", "title": "Winter in Muted Teal Tones", "caption": "Is it ironic to use cool colours for warm clothes?", "characters": ["ada", "bella"], "category": "outfit-scw-winter", "isFeatured": false},
   {"id": "20260222", "date": "2026-02-22", "title": "Chibi Batch (Sticker Dioramas)", "caption": "I'm not smart enough to figure out how to turn these into actual stickers.", "characters": ["ada", "bella", "celia", "davina"], "category": "chibi", "isFeatured": false},
-  {"id": "20260325", "date": "2026-03-25", "title": "Unfinished", "caption": "Perhaps some things are meant to be left incomplete.", "characters": ["davina"], "category": "un", "isFeatured": false}
+  {"id": "20260325", "date": "2026-03-25", "title": "Unfinished", "caption": "Perhaps some things are meant to be left incomplete.", "characters": ["davina"], "category": "un", "isFeatured": false},
+  {"id": "20261027", "date": "2026-10-27", "title": "Offseason Seaside Chillout", "caption": "Sometimes it's nice to be away from the crowds.", "characters": ["ada", "bella", "celia", "davina"], "category": "outfit-s", "isFeatured": true}
 ]
