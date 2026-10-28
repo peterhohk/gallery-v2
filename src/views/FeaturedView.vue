@@ -174,8 +174,7 @@ onDeactivated(() => {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.25rem;
-  margin-top: 0.75rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
 }
 .slideshow-pagination__button--active {
   background-color: var(--green-800);

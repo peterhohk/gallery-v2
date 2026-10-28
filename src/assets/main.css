@@ -114,7 +114,7 @@ body {
 }
 h2 {
   padding: 0.25rem 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   border-bottom: 0.0625rem solid;
   font-size: 1.25rem;
   font-weight: normal;
@@ -135,7 +135,7 @@ ruby > rt {
   text-align: center;
 }
 hr {
-  margin-block: 0.25em;
+  margin-block: 0.5em;
   border: none;
   border-top: 0.0625rem dotted;
   color: inherit;

@@ -157,7 +157,6 @@ const { selectedCharacter } = defineProps<{
 }
 .character-details__section-heading {
   padding: 0.25em 0.5em;
-  margin-bottom: 0.25rem;
   width: fit-content;
   border-radius: 1em;
   background-color: var(--img2);

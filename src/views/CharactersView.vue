@@ -56,7 +56,7 @@ function switchToCharacter(index: number): void {
 .character-nav {
   display: flex;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   gap: 0.25rem;
 }
 .character-nav__button {

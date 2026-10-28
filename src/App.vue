@@ -115,7 +115,7 @@ import { RiMenuLine } from "@remixicon/vue";
 }
 .footer {
   padding: 0.25rem 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   border-top: 0.0625rem solid;
 }
 .footer__text {

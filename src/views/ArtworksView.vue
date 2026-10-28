@@ -182,7 +182,7 @@ onDeactivated(() => {
 .artwork-filter {
   position: relative;
   width: fit-content;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-inline: auto;
   padding: 1rem 0.75rem 0.5rem;
   border: 0.0625rem dashed;
@@ -235,7 +235,7 @@ onDeactivated(() => {
   grid-template-columns: repeat(auto-fit, 9rem);
   justify-content: center;
   gap: 0.25rem;
-  margin: 0.5rem;
+  margin-top: 1rem;
 }
 .artwork-catalogue__empty-message {
   grid-column: 1 / -1;
