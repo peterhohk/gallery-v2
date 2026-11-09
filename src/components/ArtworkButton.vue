@@ -139,7 +139,7 @@ function openOriginal(): void {
   max-height: none;
 }
 .artwork-button:is(:hover, :focus-visible) {
-  translate: 0 -1rem;
+  translate: 0 -0.75rem;
 }
 .artwork-button:is(:hover, :focus-visible) .artwork-button__overlay {
   visibility: visible;
