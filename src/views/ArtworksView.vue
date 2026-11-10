@@ -151,7 +151,7 @@ onDeactivated(() => {
           v-show="shouldShowResultCount"
           class="artwork-filter__result-count-text"
         >
-          Showing {{ filteredArtworks.length }} {{ filteredArtworks.length > 1 ? "results" : "result" }}
+          Showing {{ filteredArtworks.length }} result{{ filteredArtworks.length === 1 ? "" : "s" }}
         </span>
         <button
           type="button"
