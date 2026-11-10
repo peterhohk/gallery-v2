@@ -23,6 +23,9 @@ const filters = ref<FilterOptions>({
 const filteredArtworks = computed<Artwork[]>(() => {
   return artworks.filter((artwork) => shouldIncludeArtwork(artwork));
 });
+const shouldShowResultCount = computed<boolean>(() => {
+  return filteredArtworks.value.length !== artworks.length && filteredArtworks.value.length !== 0;
+});
 const isLightboxActive = ref<boolean>(false);
 const lightboxArtworkIndex = ref<number>(0);
 
@@ -143,13 +146,21 @@ onDeactivated(() => {
         </dd>
       </dl>
       <hr>
-      <button
-        type="button"
-        class="artwork-filter__reset-button"
-        @click="resetFilters"
-      >
-        reset
-      </button>
+      <div class="artwork-filter__bottom-row">
+        <span
+          v-show="shouldShowResultCount"
+          class="artwork-filter__result-count-text"
+        >
+          Showing {{ filteredArtworks.length }} {{ filteredArtworks.length > 1 ? "results" : "result" }}
+        </span>
+        <button
+          type="button"
+          class="artwork-filter__reset-button"
+          @click="resetFilters"
+        >
+          Reset
+        </button>
+      </div>
     </form>
     <div class="artwork-catalogue">
       <span
@@ -218,8 +229,14 @@ onDeactivated(() => {
   display: block;
   height: 1.25rem;
 }
+.artwork-filter__bottom-row {
+  display: flex;
+}
+.artwork-filter__result-count-text {
+  padding-inline: 0.5rem;
+  font-size: 0.875rem;
+}
 .artwork-filter__reset-button {
-  display: block;
   margin-left: auto;
   padding-inline: 0.5rem;
   border-radius: 0.25rem;
